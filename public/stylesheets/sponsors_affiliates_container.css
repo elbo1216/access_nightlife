@@ -1,0 +1,16 @@
+#sponsors_affiliate_wrapper {
+	margin:5px 0px 0px 5px;
+	background-color: #a3a1a1;
+	height: 190px;
+	overflow-y: auto;
+	vertical-align: middle;
+	background-position: center center;
+}
+
+#sponsorheader {
+	float: left;
+	vertical-align: top;
+}
+
+
+

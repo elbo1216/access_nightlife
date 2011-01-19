@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* CSS Document */
+
+a.ButtonRollover1 {
+	width: 309px;
+	height: 76px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_01.png);
+}
+
+a:visited.ButtonRollover1 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover1 {
+	background-position: 0 -76px;
+}
+
+a:active.ButtonRollover1 {
+	background-position: 0 -76px;
+}
+
+a.ButtonRollover2 {
+	width: 158px;
+	height: 60px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 0px;
+	top: 76px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_06.png);
+}
+
+a:visited.ButtonRollover2 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover2 {
+	background-position: 0 -60px;
+}
+
+a:active.ButtonRollover2 {
+	background-position: 0 -120px;
+}
+
+a.ButtonRollover3 {
+	width: 151px;
+	height: 60px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 158px;
+	top: 76px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_07.png);
+}
+
+a:visited.ButtonRollover3 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover3 {
+	background-position: 0 -60px;
+}
+
+a:active.ButtonRollover3 {
+	background-position: 0 -120px;
+}
+
+a.ButtonRollover4 {
+	width: 166px;
+	height: 136px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 309px;
+	top: 0px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_02.png);
+}
+
+a:visited.ButtonRollover4 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover4 {
+	background-position: 0 -136px;
+}
+
+a:active.ButtonRollover4 {
+	background-position: 0 -272px;
+}
+
+a.ButtonRollover5 {
+	width: 166px;
+	height: 136px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 475px;
+	top: 0px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_03.png);
+}
+
+a:visited.ButtonRollover5 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover5 {
+	background-position: 0 -136px;
+}
+
+a:active.ButtonRollover5 {
+	background-position: 0 -272px;
+}
+
+a.ButtonRollover6 {
+	width: 151px;
+	height: 136px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 641px;
+	top: 0px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_04.png);
+}
+
+a:visited.ButtonRollover6 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover6 {
+	background-position: 0 -136px;
+}
+
+a:active.ButtonRollover6 {
+	background-position: 0 -272px;
+}
+
+a.ButtonRollover7 {
+	width: 158px;
+	height: 136px;
+	border: 0px;
+	overflow: hidden;
+	text-indent: -10000px;
+	font-size: 0px;
+	line-height: 0px;
+	position: absolute;
+	left: 792px;
+	top: 0px;
+	background-image: url(http://www.mindgear.us/images/MingearNorm_05.png);
+}
+
+a:visited.ButtonRollover7 {
+	background-position: 0 0px;
+}
+
+a:hover.ButtonRollover7 {
+	background-position: 0 -136px;
+}
+
+a:active.ButtonRollover7 {
+	background-position: 0 -272px;
+}

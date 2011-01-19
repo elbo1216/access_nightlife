@@ -1,0 +1,56 @@
+#newsletter_container {
+}
+
+#newsletter_title {
+}
+
+#newsletter_body {
+	background-color: #0f2f44;
+	font-family: 'Arial';
+	color: #FFFFFF;
+	width: 250px;
+}
+
+#newsletter_text_1 {
+	float:left;
+	padding: 5px;
+	margin: 0px 0px 0px 3px;
+    font-size: 24px;
+	color: #FFFFFF;
+	font-weight:bold;
+}
+
+#newsletter_text_2 {
+	padding: 6px 0px 0px 0px;
+    font-size: 11px;
+}
+
+#newsletter_form {
+ 	font-size: 11px;
+	padding: 6px;
+	font-family:'neuropol';
+}
+
+#newsletter_form_layout td {
+	width:100px;
+}
+
+#birthday_text input {
+	width: 15px;
+}
+
+#newsletter_button {
+	width:56px;
+	height:21px;
+	background-image:url('../images/newsletter_signup_button.png');
+	background-repeat:no-repeat;
+	margin:auto;
+	padding-top:5px;
+	text-align:center;
+}
+
+#newsletter_button a {
+	color:white;
+	font-size:10px;
+	text-decoration:none;
+}

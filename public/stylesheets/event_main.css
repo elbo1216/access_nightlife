@@ -1,0 +1,39 @@
+.main_event_container_div {
+}
+
+.flyer_div {
+	float:left;
+}
+
+.flyer_div img {
+	width:286px;
+	height:364px;
+}
+
+.main_event_info {
+	float:left;
+	background-image:url('../images/event_main_bg.jpg');
+	width:245px;
+	height:364px;
+}
+
+.main_sponsor_info {
+	background-color:#1f1f1f;
+	height:209px;
+}
+
+.info_container {
+	color:white;
+	padding:10px 0px 0px 8px;
+	font-size:14px;
+	font-family:'arial';
+	font-weight:none;
+}
+.
+.info_table {
+		
+}
+
+.info_table_spacer {
+	height:25px;
+}

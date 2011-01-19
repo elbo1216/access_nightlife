@@ -1,0 +1,55 @@
+#schedule_event {
+	width:264px;
+	margin:5px 0px 0px 5px;
+}
+
+#schedule_event_tab_title {
+	background-color:#414040;
+	border-bottom:#ff0000 2px solid;
+	font-family: 'trebuchet ms';
+	font-weight: bold;
+	color: white;
+	padding: 0px 0px 0px 5px;
+	
+}
+
+#schedule_event_tab_body {
+	background-image: url(../images/index/schedule_event_back.jpg);
+	background-repeat:repeat-y;
+	color:white;
+	font-size: 11px;
+	font-family:'neuropol';
+	padding: 5px 0px 5px 0px;
+}
+
+#schedule_event_tab_body input {
+	width: 100px;
+	border: 0px;
+	background-color: #d6d6d6;
+}
+
+#schedule_form_table{
+	margin:auto;
+}
+
+#schedule_form_table td {
+	padding:0px 10px 0px 10px;
+}
+
+#schedule_event_tab_submit {
+	padding: 0px 5px 0px 5px;
+	background-color:#414040;
+	border-top:#ff0000 2px solid;
+	text-align:center;
+	padding:3px 0px 3px 0px;
+}
+
+#schedule_event_tab_submit a {
+	font-family:'neuropol';
+	text-decoration:none;
+	color:white;
+}
+
+#birthday_text input {
+	width:15px;
+}

@@ -1,0 +1,30 @@
+<div id='newsletter_title'><img src="images/index/newsletter_header.jpg" /></div>
+<div id='newsletter_body'>
+  <div id='newsletter_text_1'>SIGNUP</div>
+  <div id='newsletter_text_2'>
+     <div>FOR OUR NEWSLETTER &</div>
+     <div>BIRTHDAY SPECIALS!</div>
+  </div>
+  <div class='clear'></div>
+  <div id='newsletter_form'>
+  <% form_remote_tag(:html => {:name => 'newsletter_form'}, :url => {:action => :add_request}, :update => 'update') do -%>
+      <table id='newsletter_form_layout'>
+        <tr>
+          <td style='width:65px;' >Email:</td>
+          <td colspan=2><%= text_field_tag :email_address %></td>
+        </tr><tr>
+          <td style='width:65px;' >Birthday<br/>(mm/dd/yy):</td>
+          <td id='birthday_text'><%= text_field_tag :birthday_mon %> -
+          <%= text_field_tag :birthday_dy %> -
+          <%= text_field_tag :birthday_yr %></td>
+		  <td style='width:58px; padding-top:5px;'>
+			<div id='newsletter_button' >
+				<%= link_to_function "SUBMIT", "document.newsletter_form.onsubmit()", {:onmouseover => "style.color='yellow'", :onMouseOut => "style.color='white'"} %>
+			</div>
+	  	  </td>
+        </tr>
+      </table>
+      <%= hidden_field_tag :request_type, 'newsletter' %>
+	<% end -%>
+  </div>
+</div>

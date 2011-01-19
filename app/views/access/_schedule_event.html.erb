@@ -1,0 +1,28 @@
+<div id='schedule_event_tab_title'>
+SCHEDULE AN EVENT WITH US
+</div>
+<div id='schedule_event_tab_body'>
+  <% form_remote_tag(:html => {:name => 'schedule_event_form'}, :url => {:action => :add_request}, :update => 'update') do -%>
+  <table id='schedule_form_table' cellpadding=8>
+    <tr>
+	  <td>First Name<br/><%= text_field_tag :first_name %></td>
+	  <td>Last Name<br/><%= text_field_tag :last_name %></td>
+	</tr>
+	<tr>
+	  <td>Email<br/><%= text_field_tag :email_address %></td>
+	  <td>Phone<br/><%= text_field_tag :phone_number %></td>
+	</tr>
+	<tr>
+	  <td id='birthday_text' colspan=2>Birthday (mm/dd/yy):<br/>
+	      <%= text_field_tag :birthday_mon %> -
+          <%= text_field_tag :birthday_dy %> -
+          <%= text_field_tag :birthday_yr %>
+	  </td>
+	</tr>
+  </table>
+  <%= hidden_field_tag :request_type, 'event' %>
+  <div id='schedule_event_tab_submit'>
+	<%= link_to_function "SUBMIT", "document.schedule_event_form.onsubmit()", {:onmouseover => "style.color='yellow'", :onMouseOut => "style.color='white'"} %>
+  </div>
+<% end -%>
+</div>
