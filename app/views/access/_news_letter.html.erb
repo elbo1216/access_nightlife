@@ -7,23 +7,23 @@
   </div>
   <div class='clear'></div>
   <div id='newsletter_form'>
-  <% form_remote_tag(:html => {:name => 'newsletter_form'}, :url => {:action => :add_request}, :update => 'update') do -%>
+  <% form_remote_tag(:html => {:name => 'newsletter_form'}, :url => {:action => :add_request}, :update => 'update', :complete => 'submitUserInfo()') do -%>
       <table id='newsletter_form_layout'>
         <tr>
           <td style='width:65px;' >Email:</td>
           <td colspan=2><%= text_field_tag :email_address %></td>
-        </tr><tr>
-          <td style='width:65px;' >Birthday<br/>(mm/dd/yy):</td>
-          <td id='birthday_text'><%= text_field_tag :birthday_mon %> -
-          <%= text_field_tag :birthday_dy %> -
-          <%= text_field_tag :birthday_yr %></td>
-		  <td style='width:58px; padding-top:5px;'>
-			<div id='newsletter_button' >
-				<%= link_to_function "SUBMIT", "document.newsletter_form.onsubmit()", {:onmouseover => "style.color='yellow'", :onMouseOut => "style.color='white'"} %>
-			</div>
-	  	  </td>
         </tr>
+		<tr>
+		  <td style='width:65px;' >Birthday<br/>(mm/dd/yy):</td>
+          <td id='birthday_text' colspan=2>
+		    <%= text_field_tag :birthday_mon %> -
+            <%= text_field_tag :birthday_dy %> -
+            <%= text_field_tag :birthday_yr %>
+		  </td>
       </table>
+	  <div id='newsletter_submit'>
+	    <%= link_to_function "SUBMIT", "document.newsletter_form.onsubmit()", {:onmouseover => "style.color='yellow'", :onMouseOut => "style.color='white'"} %>
+	  </div>
       <%= hidden_field_tag :request_type, 'newsletter' %>
 	<% end -%>
   </div>

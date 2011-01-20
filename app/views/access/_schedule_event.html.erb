@@ -1,8 +1,10 @@
+<script type='text/javascript'>
+</script>
 <div id='schedule_event_tab_title'>
 SCHEDULE AN EVENT WITH US
 </div>
 <div id='schedule_event_tab_body'>
-  <% form_remote_tag(:html => {:name => 'schedule_event_form'}, :url => {:action => :add_request}, :update => 'update') do -%>
+  <% form_remote_tag(:html => {:name => 'schedule_event_form'}, :url => {:action => :add_request}, :complete => 'submitUserInfo()') do -%>
   <table id='schedule_form_table' cellpadding=8>
     <tr>
 	  <td>First Name<br/><%= text_field_tag :first_name %></td>
@@ -13,7 +15,7 @@ SCHEDULE AN EVENT WITH US
 	  <td>Phone<br/><%= text_field_tag :phone_number %></td>
 	</tr>
 	<tr>
-	  <td id='birthday_text' colspan=2>Birthday (mm/dd/yy):<br/>
+	  <td id='schedule_event_birthday_text' colspan=2>Birthday (mm/dd/yy):<br/>
 	      <%= text_field_tag :birthday_mon %> -
           <%= text_field_tag :birthday_dy %> -
           <%= text_field_tag :birthday_yr %>

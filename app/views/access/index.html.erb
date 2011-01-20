@@ -25,6 +25,15 @@
     <%= javascript_include_tag 'fadeslideshow' %>
   </head>
   <body class="oneColFixCtr">
+	<div id=overlay>
+	  <div id='popup'>
+		<div>
+		  <span>Thank you for scheduling your event with us.  You should be hearing from us shortly</span>
+		  <br/><br/><br/>
+		  <a href="javascript:document.getElementById('overlay').style.display = 'none'">close</a>
+	    </div>
+	  </div>
+	</div>
     <div id="container">
       <div id="banner"><img src="images/accesssilver.jpg" /></div>
       <!-- TEMPORARY UNTIL THE MENUS ARE DONE-->

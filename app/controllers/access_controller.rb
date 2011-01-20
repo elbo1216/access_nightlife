@@ -8,10 +8,10 @@ class AccessController < ApplicationController
 
   def add_request
    if request.post?
-	 unless params[:email_address]
+	 if params[:email_address]
        user = User.find_by_sql("select * from users where email = '#{params[:email_address]}'")
        if user.blank?
-  	   user = User.new
+  	     user = User.new
        end
        user.firstname = params[:first_name]
        user.lastname = params[:last_name]

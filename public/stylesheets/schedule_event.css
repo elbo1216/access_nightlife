@@ -33,23 +33,23 @@
 }
 
 #schedule_form_table td {
-	padding:0px 10px 0px 10px;
+	padding:0px 10px 3px 10px;
 }
 
 #schedule_event_tab_submit {
-	padding: 0px 5px 0px 5px;
+	padding: 3px 5px 3px 5px;
 	background-color:#414040;
 	border-top:#ff0000 2px solid;
 	text-align:center;
-	padding:3px 0px 3px 0px;
 }
 
 #schedule_event_tab_submit a {
 	font-family:'neuropol';
 	text-decoration:none;
+	font-size:14px;
 	color:white;
 }
 
-#birthday_text input {
-	width:15px;
+#schedule_event_birthday_text input {
+	width: 25px;
 }

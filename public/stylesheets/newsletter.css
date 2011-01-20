@@ -27,16 +27,20 @@
 
 #newsletter_form {
  	font-size: 11px;
-	padding: 6px;
 	font-family:'neuropol';
 }
 
+#newsletter_form_layout {
+	border-collapse:collapse;
+}
+
 #newsletter_form_layout td {
-	width:100px;
+	width:100%;
+	padding:0px 10px 3px 10px;
 }
 
 #birthday_text input {
-	width: 15px;
+	width: 25px;
 }
 
 #newsletter_button {
@@ -49,8 +53,14 @@
 	text-align:center;
 }
 
-#newsletter_button a {
+#newsletter_submit {
+	text-align:center;
+	padding: 3px 5px 3px 5px;
+	border-top:2px solid #86a4b6;
+}
+
+#newsletter_submit a {
 	color:white;
-	font-size:10px;
+	font-size:14px;
 	text-decoration:none;
 }

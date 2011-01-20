@@ -9,6 +9,35 @@
 	clear:both;
 }
 
+#overlay {
+	position:absolute;
+	background-image:url('../images/overlay.png');
+	background-repeat:repeat;
+	width:100%;
+	height:100%;
+	z-index:10001;
+	display:none;
+}
+
+#popup {
+	margin:250px auto;
+	background-image:url('../images/popup.png');
+	background-repeat:no-repeat;
+	width:272px;
+	height:140px;
+	z-index:10002;
+}
+
+#popup div{
+	padding:30px 10px;
+	color:white;
+	font-size:14px;
+}
+
+#popup a{
+	color:black;
+}
+
 body {
 	padding:0;
 	background-color: #000000;
