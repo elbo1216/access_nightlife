@@ -1,0 +1,66 @@
+#nav {
+	background-image:url('../images/nav_bg.jpg');
+	background-repeat:repeat-x;
+	width:1083px;
+	height:38px;
+	font=size:14px;
+}
+
+#nav a {
+	color:white;
+	text-decoration:none;
+	font-family:'neuropol';
+}
+
+#nav img {
+	border-style:none;
+}
+
+#home_button_container {
+	background-image:url('../images/home.png');
+	background-repeat:no-repeat;
+	float:left;
+	height:38px;
+	width:69px;
+}
+
+#home_button_container div {
+	margin:13px 0px 0px 18px;
+}
+
+#gallery_button_container {
+	background-image:url('../images/gallery.png');
+	background-repeat:no-repeat;
+	float:left;
+	height:38px;
+	width:94px;
+}
+
+#gallery_button_container div {
+	margin:13px 0px 0px 25px;
+}
+
+#contact_button_container {
+	background-image:url('../images/contact_us.png');
+	background-repeat:repeat-x;
+	float:left;
+	height:38px;
+	width:155px;
+}
+
+#contact_button_container div {
+	margin:13px 0px 0px 20px;
+}
+
+#twitter_container {
+	float:right;
+}
+
+#youtube_container {
+	float:right;
+}
+
+#facebook_container {
+	float:right;
+}
+

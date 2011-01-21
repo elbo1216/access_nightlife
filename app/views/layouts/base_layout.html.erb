@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Access NightLife: Innovative NightLife</title>
+      <link rel="icon"
+        type="image/png" 
+        href="http://www.mindgear.us/images/favicon.png">
+  
+    <%= stylesheet_link_tag "headerbuttons" %>
+    <%= stylesheet_link_tag "style" %>
+    <%= stylesheet_link_tag "navigation" %>
+    <%= stylesheet_link_tag "newsletter" %>
+    <%= stylesheet_link_tag "schedule_event" %>
+    <%= stylesheet_link_tag "upcoming_event_container" %>
+    <%= stylesheet_link_tag "event_main" %>
+    <%= stylesheet_link_tag "thumbnail_container" %>
+    <%= stylesheet_link_tag "sponsors_affiliates_container" %>
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'jquery-1.4.4' %>
+    <%= javascript_include_tag 'animatedcollapse' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'effects' %>
+    <%= javascript_include_tag 'controls' %>
+    <%= javascript_include_tag 'dragdrop' %>
+    <%= javascript_include_tag 'fadeslideshow' %>
+  </head>
+  <body class="oneColFixCtr">
+	<div id=overlay>
+	  <div id='popup'>
+		<div>
+		  <span>Thank you for scheduling your event with us.  You should be hearing from us shortly</span>
+		  <br/><br/><br/>
+		  <a href="javascript:document.getElementById('overlay').style.display = 'none'">close</a>
+	    </div>
+	  </div>
+	</div>
+    <div id="container">
+      <div id="banner"><img src="images/accesssilver.jpg" /></div>
+      <div id='nav'>
+        <div id='home_button_container'>
+          <div><a href='/index'>Home</a></div>
+    	</div>
+        <div id='gallery_button_container'>
+          <div><a href='/index'>Gallery</a></div>
+        </div>
+        <div id='contact_button_container'>
+          <div><a href='/index'>Contact Us</a></div>
+        </div>
+        <div id='twitter_container'>
+          <div><a href=""><img src='../images/twitter.png' /></a></div>
+        </div>
+        <div id='youtube_container'>
+          <div><a href=""><img src='../images/youtube.png' /></a></div>
+        </div>
+        <div id='facebook_container'>
+          <div><a href=""><img src='../images/facebook.png' /></a></div>
+        </div>
+      </div>
+	  <%= yield %>
+    </div>
+    <div id="footer"><img src="images/privacybanner.jpg"/></div>
+    <div class='clear' ></div>
+  </body>
+</html>

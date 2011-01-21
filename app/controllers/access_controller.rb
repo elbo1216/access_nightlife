@@ -1,4 +1,5 @@
 class AccessController < ApplicationController
+  layout "base_layout"
 
   def index
 	@upcoming_events = UpcomingEvent.all
