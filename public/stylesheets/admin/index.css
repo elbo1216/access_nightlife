@@ -1,0 +1,11 @@
+#all_events {
+	margin:10px 0px 0px 0px;
+}
+
+#all_events table {
+	border:1px solid black;
+}
+
+#all_events td{
+	border:1px solid black;
+}

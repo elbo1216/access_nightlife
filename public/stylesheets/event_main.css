@@ -12,7 +12,7 @@
 
 .main_event_info {
 	float:left;
-	background-image:url('../images/event_main_bg.jpg');
+	background-image:url('/images/event_main_bg.jpg');
 	width:245px;
 	height:364px;
 }

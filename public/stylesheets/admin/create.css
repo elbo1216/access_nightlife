@@ -1,0 +1,29 @@
+@import url('../event_main.css');
+
+#create_event_container {
+	margin:20px 0px 0px 0px;
+	height:100%;
+	width:100%;
+}
+
+#form_container {
+	float:left;
+	width:40%;
+}
+
+#preview_container {
+	float:left;
+	width:60%;
+	color:white;
+}
+
+#preview_label {
+	font-style:italic;
+	font-size:18px;
+	margin:0px 0px 10px;
+	color:black;
+}
+
+#preview_container label {
+	color:white;
+}

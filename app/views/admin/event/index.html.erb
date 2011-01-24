@@ -1,0 +1,32 @@
+<% @title='Schedule Upcoming Events' %>
+
+<span style='color:gray'>List Events</span>
+<br />
+<span style='color:gray'>Schedule Upcoming Events</span>
+<br/>
+<%= link_to 'Create Event', :controller => 'event', :action => 'create' %>
+<br/>
+<div id='all_events'>
+  <table>
+    <tr>
+      <td>Event Id</td>
+      <td>Event Name</td>
+      <td>Event Start Time</td>
+      <td>Event Venue</td>
+      <td>Event Schedule Type</td>
+      <td>Event Schedule Position</td>
+      <td></td>
+    </tr>
+    <% @events.each do |e| %>
+      <tr>
+        <%= "<td>#{e.id}</td>" %>
+        <%= "<td>#{e.event_name}</td>" %>
+        <%= "<td>#{e.event_start_time}</td>" %>
+        <%= "<td>#{e.venue}</td>" %>
+        <%= "<td>#{e.event_type == 'a' ? 'Asian' : 'Mixed'}</td>" %>
+        <%= "<td>#{e.event_order}</td>" %>
+        <%= "<td>#{link_to 'edit', :action => 'update', :id => e.id}</td>" %>
+      </tr>
+    <% end %>
+  </table>
+</div>
