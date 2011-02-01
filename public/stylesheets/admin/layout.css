@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'neuropol';
-	src: url('../fonts/neuropol.tff');
+	src: url('/fonts/neuropol.tff');
 }
 
 .clear {
@@ -15,6 +15,10 @@
 #admin_title {
 	height:95px; 
 	border-bottom:2px solid gray;
+}
+
+#admin_body {
+	width:1050px;
 }
 
 #logo_div {
@@ -51,7 +55,10 @@
 	background-image:url('/images/admin_bg_mid.png');
 	background-repeat:repeat-y;
 	width:1050;
-	padding:0px 10px 0px 15px;
+}
+
+#admin_frame_middle_container {
+	padding:0px 15px 0px 15px;
 }
 
 #admin_frame_bottom {

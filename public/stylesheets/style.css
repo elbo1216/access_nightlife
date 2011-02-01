@@ -84,6 +84,11 @@ body {
 	height:573px;
 }
 
+#main_area{
+	width:531px;
+	height:573px;
+}
+
  div#header{
 	position:fixed;
 	top:0px;

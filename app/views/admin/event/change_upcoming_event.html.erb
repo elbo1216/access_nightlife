@@ -1,0 +1,25 @@
+<% @title='Change Upcoming Events' %>
+
+<% form_tag -%>
+  <table>
+    <tr>
+      <td>Event: </td>
+      <td>
+        <select id='event_select' name='event_id'>
+          <% @events.each do |e| -%>
+            <%= "<option value=#{e.id} #{'selected' if e.event_name == @upcoming_event.event_name}>#{e.event_name}</option>" -%>
+          <% end -%>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>Type: </td>
+      <td>
+        <select id='event_type' name='event_type'>
+          <option value='m' #{'selected' if @upcoming_events == 'm' }>Mixed</option>
+          <option value='a' #{'selected' if @upcoming_events == 'a' }>Asian</option>
+        </select> 
+      </td>
+    </tr>
+  </table>
+  <%= submit_tag 'Submit' -%>

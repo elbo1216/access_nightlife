@@ -1,4 +1,5 @@
 <% @upcoming_events.each do |ue| -%>
+  <% next if ue.event.blank? %>
   <%= "<div 'main_event_container_div' id='main_event_container_#{@upcoming_events.index(ue)}' style='display:#{@upcoming_events.index(ue) == 0 ? 'block' : 'none'}'>" %> 
     <%= "<div class='flyer_div' id='flyer_#{@upcoming_events.index(ue)}'>" %>
       <%= "<img src='#{ue.event.flyer.file_path}/#{ue.event.flyer.filename}' />" %> 

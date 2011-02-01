@@ -14,6 +14,7 @@ animatedcollapse.init()
   <div id="asian_events">
     <table class='event_table'>
 	  <% @upcoming_asian_events.each do |uae| -%>
+        <% next if uae.event.blank? %>
  	    <%= "<tr><td onClick='toggleEvent(#{@upcoming_events.index(uae)}, #{@upcoming_events.size})' onMouseOut=\"style.backgroundColor='transparent'\" onMouseOver=\"style.backgroundColor='#aeaeae'\">" %>
         <%= "<div class='event_img_div' id='asian_img_#{@upcoming_events.index(uae)}>'" %>
         <%= "<img class='event_thumb' src='#{uae.event.flyer.file_path}/#{uae.event.flyer.filename}' />"%>
@@ -23,8 +24,8 @@ animatedcollapse.init()
         <%= "<div class='event_info_name'>#{uae.event.event_name}</div>" %>
         <%= "</div>"%>
 		<div class='clear'></div>
-        <% end -%>
-	  <%= "</td></tr>" %>
+	    <%= "</td></tr>" %>
+      <% end -%>
 	</table>
   </div>
 </div>
@@ -34,6 +35,7 @@ animatedcollapse.init()
   <div id="mixed_events">
     <table class='event_table'>
 	  <% @upcoming_mixed_events.each do |ume| -%>
+        <% next if ume.event.blank? %>
  	    <%= "<tr><td onClick='toggleEvent(#{@upcoming_events.index(ume)}, #{@upcoming_events.size})' onMouseOut=\"style.backgroundColor='transparent'\" onMouseOver=\"style.backgroundColor='#aeaeae'\">" %>
         <%= "<div class='event_img_div' id='asian_img_#{@upcoming_events.index(ume)}>'" %>
         <%= "<img class='event_thumb' src='#{ume.event.flyer.file_path}/#{ume.event.flyer.filename}' />"%>
@@ -43,8 +45,8 @@ animatedcollapse.init()
         <%= "<div class='event_info_name'>#{ume.event.event_name}</div>" %>
         <%= "</div>"%>
 		<div class='clear'></div>
-        <% end -%>
-	  <%= "</td></tr>" %>
+	    <%= "</td></tr>" %>
+      <% end -%>
 	</table>
   </div>
 </div>

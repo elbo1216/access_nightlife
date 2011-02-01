@@ -1,38 +1,23 @@
-<script>
-  jQuery.noConflict();
-  function changeLabel(id) {
-    alert(self.value);
-    //document.getElementById(id).innerHTML = self.value;
-  }
-
-  //jQuery('#event_name').keyup(changeLabel('a'));
-</script>
 <% @title=@method + ' Event' %>
-
-<%= link_to 'List Events', :controller => 'event', :action => 'index' %>
-<br/>
-<%= link_to 'Scehdule Upcoming Events', :controller => 'event', :action => 'index' %>
-<br/>
-<span class='non_link'><%= @method %> Event</span>
 <div id='create_event_container'>
   <div id='form_container'>
     <%= form_tag '/admin/event/create', :multipart => true %>
 	  <table id='form_table'>
         <tr>
           <td>Event Name:</td>
-          <td><%= text_field_tag :event_name, @event.event_name if @event %></td>
+          <td><%= text_field_tag :event_name, @event.event_name %></td>
         </tr>
         <tr>
           <td>Venue:</td>
-          <td><%= text_field_tag :venue, @event.venue if @event %></td>
+          <td><%= text_field_tag :venue, @event.venue %></td>
         </tr>
         <tr>
           <td>Address:</td>
-          <td><%= text_field_tag :event_address, @event.event_address if @event %></td>
+          <td><%= text_field_tag :event_address, @event.event_address %></td>
         </tr>
         <tr>
           <td>Start Time:</td>
-          <td><%= text_field_tag :event_start_time, @event.event_start_time if @event %></td>
+          <td><%= text_field_tag :event_start_time, @event.event_start_time %></td>
         </tr>
         <tr>
           <td>Flyer:</td>
@@ -40,27 +25,27 @@
         </tr>
         <tr>
           <td>Note Label 1:</td>
-          <td><%= text_field_tag :event_notes1_label, @event.event_notes1_label if @event %></td>
+          <td><%= text_field_tag :event_notes1_label, @event.event_notes1_label %></td>
         </tr>
         <tr>
           <td>Notes 1:</td>
-          <td><%= text_field_tag :event_notes1, @event.event_notes1 if @event %></td>
+          <td><%= text_field_tag :event_notes1, @event.event_notes1 %></td>
         </tr>
         <tr>
           <td>Note Label 2:</td>
-          <td><%= text_field_tag :event_notes2_label, @event.event_notes1_label if @event %></td>
+          <td><%= text_field_tag :event_notes2_label, @event.event_notes1_label %></td>
         </tr>
         <tr>
           <td>Notes 2:</td>
-          <td><%= text_field_tag :event_notes2, @event.event_notes2 if @event %></td>
+          <td><%= text_field_tag :event_notes2, @event.event_notes2 %></td>
         </tr>
         <tr>
           <td>Note Label 3:</td>
-          <td><%= text_field_tag :event_notes3_label, @event.event_notes3_label if @event %></td>
+          <td><%= text_field_tag :event_notes3_label, @event.event_notes3_label %></td>
         </tr>
         <tr>
           <td>Notes 3:</td>
-          <td><%= text_field_tag :event_notes3, @event.event_notes3 if @event %></td>
+          <td><%= text_field_tag :event_notes3, @event.event_notes3 %></td>
         </tr>
         <tr>
           <td colspan=2><%= submit_tag 'Sumbit' %></td>
@@ -71,7 +56,7 @@
     <div id='preview_label'>Preview</div>
     <div id='main_event_container_div'> 
       <div class='flyer_div'>
-        <img src='<%= @event.flyer.file_path + '/' + @event.flyer.filename if @event %>' /> 
+        <img src='<%= "#{@flyer.file_path}/#{@flyer.filename}" %>' /> 
       </div>    
       <div class='main_event_info' >
 	    <img src='/images/event_main_title.jpg' />
@@ -79,38 +64,38 @@
           <table class='info_table'>
           <tr>
             <td>
-               <label id='p_start_date'><%= @event.event_start_time.strftime('%m/%d/%Y') if @event.event_start_time if @event %></label>
+               <label id='p_start_date'><%= @event.event_start_time.strftime('%m/%d/%Y') if @event.event_start_time %></label>
                <br/>
-               <label id='p_start_time'><%= @event.event_start_time.strftime('%t') if @event.event_start_time if @event %></label>
+               <label id='p_start_time'><%= @event.event_start_time.strftime('%t') if @event.event_start_time %></label>
              </td>
           </tr>
 		  <tr><td class='info_table_spacer'></td></tr>
           <tr>
             <td>
-	          <label id='p_venue'><%= @event.venue  if @event %></label>
+	          <label id='p_venue'><%= @event.venue  %></label>
               <br/>
-	          <label id='p_address'><%= @event.venue if @event %></label>
+	          <label id='p_address'><%= @event.venue %></label>
             </td>
           </tr>
 		  <tr><td class='info_table_spacer'></td></tr>
           <tr>
             <td>
-				 <label id='p_notes1_label'><%= @event.event_notes1_label if @event  %></label><br/>
-	             <label id='p_notes1'><%= @event.event_notes1 if @event  %></label>
+				 <label id='p_notes1_label'><%= @event.event_notes1_label  %></label><br/>
+	             <label id='p_notes1'><%= @event.event_notes1  %></label>
 			</td>
           </tr>
 		  <tr><td class='info_table_spacer'></td></tr>
           <tr>
             <td>
-				 <label id='p_notes2_label'><%= @event.event_notes2_label if @event  %></label><br/>
-	             <label id='p_notes2'><%= @event.event_notes2 if @event  %></label>
+				 <label id='p_notes2_label'><%= @event.event_notes2_label  %></label><br/>
+	             <label id='p_notes2'><%= @event.event_notes2  %></label>
 			</td>
           </tr>
 		  <tr><td class='info_table_spacer'></td></tr>
           <tr>
             <td>
-				 <label id='p_notes3_label'><%= @event.event_notes3_label if @event  %></label><br/>
-	             <label id='p_notes3'><%= @event.event_notes3 if @event  %></label>
+				 <label id='p_notes3_label'><%= @event.event_notes3_label  %></label><br/>
+	             <label id='p_notes3'><%= @event.event_notes3  %></label>
 			</td>
           </tr>
           </table>
@@ -120,3 +105,19 @@
   </div>
 </div>
 <div class='clear'></div>
+<script>
+  jQuery.noConflict();
+  function changeLabel(input_id, label_id) {
+    jQuery('#'+label_id).html(jQuery('#'+input_id).val());
+  }
+
+  jQuery('#venue').keyup(function(event) {changeLabel('venue', 'p_venue');});
+  jQuery('#event_address').keyup(function(event) {changeLabel('event_address', 'p_address');});
+  jQuery('#event_start_time').keyup(function(event) {changeLabel('event_start_time', 'p_start_time');});
+  jQuery('#event_notes1_label').keyup(function(event) {changeLabel('event_notes1_label', 'p_notes1_label');});
+  jQuery('#event_notes1').keyup(function(event) {changeLabel('event_notes1', 'p_notes1');});
+  jQuery('#event_notes2_label').keyup(function(event) {changeLabel('event_notes2_label', 'p_notes2_label');});
+  jQuery('#event_notes2').keyup(function(event) {changeLabel('event_notes2', 'p_notes2');});
+  jQuery('#event_notes3_label').keyup(function(event) {changeLabel('event_notes3_label', 'p_notes3_label');});
+  jQuery('#event_notes3').keyup(function(event) {changeLabel('event_notes3', 'p_notes3');});
+</script>

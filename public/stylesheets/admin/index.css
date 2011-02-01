@@ -1,11 +1,48 @@
+table {
+	border:1px solid black;
+	border-collapse:collapse;	
+}
+
+th {
+	border:1px solid black;
+	border-collapse:collapse;	
+	padding:3px;
+	background-color:lightgrey;
+}
+
+td {
+	border:1px solid black;
+	padding:3px;
+	font-size:14px;
+}
+
+h1 {
+	font-size:20px;
+	font-weight:normal;
+	font-style:italic;
+}
+
+
+#upcoming_asian_events {
+	float:left;
+	width:50%;
+}
+
+#upcoming_mixed_events {
+	float:left;
+	width:50%;
+}
+
 #all_events {
-	margin:10px 0px 0px 0px;
+	clear:both;
+	width:100%;
+	padding:30px 0px 0px 0px;
 }
 
-#all_events table {
-	border:1px solid black;
+.event_select {
+	display:none;
 }
 
-#all_events td{
-	border:1px solid black;
+.sc_links {
+	display:none;
 }

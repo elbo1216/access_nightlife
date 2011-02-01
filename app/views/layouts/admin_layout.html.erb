@@ -22,8 +22,10 @@
       <div id='admin_body'>
 	    <div id='admin_frame_top'></div>
 	    <div id='admin_frame_middle'>
-		   <div id='title'><%= @title %></div>
-           <%= yield %>
+           <div id='admin_frame_middle_container'>
+		     <div id='title'><%= @title %></div>
+             <%= yield %>
+           </div>
         </div>
 	    <div id='admin_frame_bottom'></div>
       </div>
