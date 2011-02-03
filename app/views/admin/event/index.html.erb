@@ -39,7 +39,17 @@
 					 }
 				    });
 	}
+
+    function deleteEvent(id) {
+      jQuery.ajax({
+                    url: '/admin/event/remove_upcoming_event/' + id,
+                    success:function(msg) {
+                    	jQuery('#event_name_'+id).html("");
+                    }
+                 });
+    }
 </script>
+<div id='upcoming_events_admin_div'>
 <div id='upcoming_asian_events'>
   <h1>Upcoming Asian Events</h1>
   <table>
@@ -50,9 +60,10 @@
         <th></th>
       </tr>
       <% for i in 0..UpcomingEvent::MAX_EVENTS-1 %>
-        <tr>
-          <%= "<td>#{@upcoming_asian_events[i].event_order}</td>" %>
-          <td>
+        <% row_class = (i % 2 == 1) ? 'odd' : 'even' %>
+        <tr class='<%= row_class %>'>
+          <%= "<td style='text-align:center;'>#{@upcoming_asian_events[i].event_order}</td>" %>
+          <td style='width:270px'>
             <%= select_tag "event_select_#{@upcoming_asian_events[i].id}", @options_for_event_select, :class => 'event_select' -%>
             <%  event_name = @upcoming_asian_events[i].event.blank? ? nil : @upcoming_asian_events[i].event.event_name -%>
              <%= "<span id='event_name_#{@upcoming_asian_events[i].id}'>#{event_name}</span>" -%>
@@ -60,7 +71,7 @@
           <td>
             <div class='cd_links' id='cd_links_<%= @upcoming_asian_events[i].id -%>'>
               <a href='javascript:changeUpcomingEvent(<%= @upcoming_asian_events[i].id-%>)'>Change</a>
-              <a href='javascript:changeEvent(<%= @upcoming_asian_events[i].id-%>)'>Delete</a>
+              <a href='javascript:deleteEvent(<%= @upcoming_asian_events[i].id-%>)'>Delete</a>
             </div>
             <div class='sc_links' id='sc_links_<%= @upcoming_asian_events[i].id -%>'>
               <a href='javascript:saveUpcomingEventChange(<%= @upcoming_asian_events[i].id-%>)'>Save</a>
@@ -83,9 +94,10 @@
         <th></th>
       </tr>
       <% for i in 0..UpcomingEvent::MAX_EVENTS-1 %>
-        <tr>
-          <%= "<td>#{@upcoming_mixed_events[i].event_order}</td>" %>
-          <td>
+        <% row_class = (i % 2 == 1) ? 'odd' : 'even' %>
+        <tr class='<%= row_class %>'>
+          <%= "<td style='text-align:center;'>#{@upcoming_mixed_events[i].event_order}</td>" %>
+          <td style='width:270px'>
             <%= select_tag "event_select_#{@upcoming_mixed_events[i].id}", @options_for_event_select, :class => 'event_select' -%>
             <%  event_name = @upcoming_mixed_events[i].event.blank? ? nil : @upcoming_mixed_events[i].event.event_name -%>
              <%= "<span id='event_name_#{@upcoming_mixed_events[i].id}'>#{event_name}</span>" -%>
@@ -106,6 +118,7 @@
     </tbody>
   </table>
 </div>
+</div>
 <div id='all_events'>
   <h1>All Events</h1>
   <%= link_to 'Create Event', :controller => 'event', :action => 'create' %>
@@ -121,9 +134,12 @@
       <th>Event Notes 3</th>
       <th></th>
     </tr>
+    <% i = 0 %>
     <% @events.each do |e| %>
-      <tr>
-        <%= "<td>#{e.id}</td>" %>
+      <% row_class = (i % 2 == 1) ? 'odd' : 'even' %>
+      <% i += 1%>
+      <tr class='<%= row_class %>'>
+        <%= "<td style='text-align:center;'>#{e.id}</td>" %>
         <%= "<td>#{e.event_name}</td>" %>
         <%= "<td>#{e.event_start_time}</td>" %>
         <%= "<td>#{e.venue}</td>" %>

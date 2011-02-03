@@ -15,7 +15,7 @@ animatedcollapse.init()
     <table class='event_table'>
 	  <% @upcoming_asian_events.each do |uae| -%>
         <% next if uae.event.blank? %>
- 	    <%= "<tr><td onClick='toggleEvent(#{@upcoming_events.index(uae)}, #{@upcoming_events.size})' onMouseOut=\"style.backgroundColor='transparent'\" onMouseOver=\"style.backgroundColor='#aeaeae'\">" %>
+ 	    <%= "<tr><td onClick='toggleEvent(#{@upcoming_events.index(uae)}, #{@upcoming_events.size})' onMouseOut=\"style.backgroundColor='transparent'\" onMouseOver=\"style.backgroundColor='#3e3e3e'\">" %>
         <%= "<div class='event_img_div' id='asian_img_#{@upcoming_events.index(uae)}>'" %>
         <%= "<img class='event_thumb' src='#{uae.event.flyer.file_path}/#{uae.event.flyer.filename}' />"%>
         <%= "</div>" %>

@@ -7,13 +7,15 @@ th {
 	border:1px solid black;
 	border-collapse:collapse;	
 	padding:3px;
-	background-color:lightgrey;
+	background-color:#cccccc;
+	font-size:16px;
 }
 
 td {
-	border:1px solid black;
-	padding:3px;
+	border:0px solid black;
+	padding:3px 3px 0px 10px;
 	font-size:14px;
+	height:30px;
 }
 
 h1 {
@@ -22,6 +24,9 @@ h1 {
 	font-style:italic;
 }
 
+#upcoming_events_admin_div {
+	padding-left:19px;
+}
 
 #upcoming_asian_events {
 	float:left;
@@ -45,4 +50,12 @@ h1 {
 
 .sc_links {
 	display:none;
+}
+
+.even {
+	background-color:#eaeaea;
+}
+
+.odd {
+	background-color:#ffffff;
 }

@@ -74,5 +74,12 @@ module Admin
       @upcoming_event.reload
       render :text => @upcoming_event.event.event_name
     end
+
+    def remove_upcoming_event
+      @upcoming_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
+      @upcoming_event.event_id = nil
+      @upcoming_event.save!
+      render :nothing => true
+    end
   end
 end
