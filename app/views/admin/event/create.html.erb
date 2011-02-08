@@ -16,8 +16,23 @@
           <td><%= text_field_tag :event_address, @event.event_address %></td>
         </tr>
         <tr>
+          <td>Start Date:</td>
+          <td><%= text_field_tag :event_start_date, @event.event_start_date %></td>
+        </tr>
+        <tr>
           <td>Start Time:</td>
-          <td><%= text_field_tag :event_start_time, @event.event_start_time %></td>
+          <% 
+              event_start_time_options = ""
+              for i in 1..2 do
+               tod = (i == 1) ? 'am' : 'pm'
+                for j in 1..12
+                  time = "#{j}:00#{tod}"
+                  selected = 'selected' if @event.event_start_time == time
+                  event_start_time_options = event_start_time_options + "<option value='#{time}' #{selected}>#{time}</option>"
+                end
+              end
+          -%>
+          <td><%= select_tag :event_start_time,  event_start_time_options%></td>
         </tr>
         <tr>
           <td>Flyer:</td>
@@ -120,4 +135,11 @@
   jQuery('#event_notes2').keyup(function(event) {changeLabel('event_notes2', 'p_notes2');});
   jQuery('#event_notes3_label').keyup(function(event) {changeLabel('event_notes3_label', 'p_notes3_label');});
   jQuery('#event_notes3').keyup(function(event) {changeLabel('event_notes3', 'p_notes3');});
+  jQuery(function() {
+		jQuery( "#event_start_date" ).datepicker({
+				showOn: "button",
+				buttonImage: "/images/calendar.gif",
+				buttonImageOnly: true
+			});
+	});
 </script>

@@ -19,9 +19,14 @@ var mygallery=new fadeSlideShow({
 
 <img src="images/picturegallerytab.png" />
 <div id="thumb_container">
-  <table><tr><td>
+  <div class='img_slider' id='slideshow_left_slider'> < </div>
   <div id="fadeshow1"></div>
-
-
-  </td></tr></table>
+  <div class='img_slider' id='slideshow_right_slider'> > </div>
 </div>
+
+<script>
+  jQuery('#slideshow_left_slider').mouseover(function() {jQuery(this).css('background-color', '#6e6e6e')});
+  jQuery('#slideshow_left_slider').mouseout(function(){jQuery(this).css('background-color', 'transparent')});
+  jQuery('#slideshow_right_slider').mouseover(function() {jQuery(this).css('background-color', '#6e6e6e')});
+  jQuery('#slideshow_right_slider').mouseout(function(){jQuery(this).css('background-color', 'transparent')});
+</script>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118061227) do
+ActiveRecord::Schema.define(:version => 20110208035537) do
 
   create_table "event_requests", :force => true do |t|
     t.integer   "user_id"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20110118061227) do
   create_table "events", :force => true do |t|
     t.integer   "flyer_id"
     t.string    "event_name",         :limit => 100
-    t.datetime  "event_start_time"
+    t.time      "event_start_time"
     t.string    "event_address",      :limit => 50
     t.string    "event_notes1",       :limit => 50
     t.string    "event_notes2",       :limit => 50
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110118061227) do
     t.string    "event_notes1_label", :limit => 50
     t.string    "event_notes2_label", :limit => 50
     t.string    "event_notes3_label", :limit => 50
+    t.date      "event_start_date"
   end
 
   create_table "flyers", :force => true do |t|
