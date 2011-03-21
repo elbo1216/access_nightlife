@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110208035537) do
+ActiveRecord::Schema.define(:version => 20110307083244) do
 
   create_table "event_requests", :force => true do |t|
     t.integer   "user_id"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(:version => 20110208035537) do
     t.string    "file_path"
     t.timestamp "created_at",                :null => false
     t.timestamp "updated_at",                :null => false
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string    "name"
+    t.integer   "event_id"
+    t.string    "gallery_path",         :limit => 50
+    t.boolean   "is_current_slideshow",               :default => false
+    t.timestamp "created_at",                                            :null => false
+    t.timestamp "updated_at",                                            :null => false
+  end
+
+  create_table "gallery_images", :force => true do |t|
+    t.integer   "gallery_id"
+    t.string    "image_path",         :limit => 50,                     :null => false
+    t.string    "image_filename",     :limit => 50,                     :null => false
+    t.string    "image_comments",     :limit => 100
+    t.boolean   "is_slideshow_image",                :default => false, :null => false
+    t.timestamp "created_at",                                           :null => false
+    t.timestamp "updated_at",                                           :null => false
   end
 
   create_table "newsletter_requests", :force => true do |t|

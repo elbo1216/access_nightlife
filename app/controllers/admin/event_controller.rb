@@ -17,7 +17,11 @@ module Admin
       @flyer = Flyer.new
       if request.post?
         @flyer.upload_flyer(params['flyer'])
-        @flyer.save
+        begin
+          @flyer.save!
+        rescue
+          raise @flyer.errors.inspect
+        end
 
         @event.event_name = params['event_name']
         @event.event_address = params['event_address']

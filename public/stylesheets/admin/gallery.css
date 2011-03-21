@@ -1,0 +1,25 @@
+#gallery_div #image_div {
+  display:none;
+  position:absolute;
+  margin:50px auto;
+  height:200px;
+  width:200px;
+  
+}
+
+#gallery_uplaod_div {
+
+}
+
+#gallery_upload_div form {
+	 margin:0px;
+}
+
+#gallery_upload_div table {
+	 margin:0px;
+  border:0px;
+}
+
+#gallery_upload_div table input {
+  width:200px;
+}

@@ -1,0 +1,33 @@
+<script type="text/javascript" src="/javascripts/jquery-1.4.4.js"></script>
+<script type="text/javascript">
+function addEntry() {
+  var count = parseInt($("#param_count").val()) + 1;
+	 var newFileField = $(document.createElement('input'))
+            .attr({ id: 'gallery_image_' + count, type: 'file', name: 'gallery_image_' + count});
+  tr = $('<tr>');
+  tr.append('<td>File:</td>');
+  $('<td>')
+    .append(newFileField)
+    .appendTo(tr);
+  $('#image_upload_table')
+    .append(tr);
+
+  $("#param_count").val(count);
+}
+</script>
+<div id='gallery_upload_div'>
+  <a href='javascript:addEntry()'>Add File</a>
+  <%= form_tag "/admin/gallery/add_images/#{id}", :multipart => true %>
+    <table id="image_upload_table">
+      <tr>
+        <td>File:</td>
+        <td>
+        <input type='file' name='gallery_image_1' id='gallery_image_1'>
+        </td>
+      </tr>
+    </table>
+  <input id='param_count'  type='hidden' value=1>
+  <input id='action'  type='hidden' value='<%= action -%>'>
+  <input id='id'  type='hidden' value='<%= id -%>'>
+  <input type='submit' name='submit' value='submit' onClick='javascript:alert(1)'>
+</div>

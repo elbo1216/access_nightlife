@@ -40,14 +40,14 @@
 				    });
 	}
 
-    function deleteEvent(id) {
-      jQuery.ajax({
-                    url: '/admin/event/remove_upcoming_event/' + id,
-                    success:function(msg) {
-                    	jQuery('#event_name_'+id).html("");
-                    }
-                 });
-    }
+ function deleteEvent(id) {
+  jQuery.ajax({
+                url: '/admin/event/remove_upcoming_event/' + id,
+                success:function(msg) {
+               	jQuery('#event_name_'+id).html("");
+               }
+              });
+ }
 </script>
 <div id='upcoming_events_admin_div'>
 <div id='upcoming_asian_events'>

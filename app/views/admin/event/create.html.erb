@@ -21,18 +21,7 @@
         </tr>
         <tr>
           <td>Start Time:</td>
-          <% 
-              event_start_time_options = ""
-              for i in 1..2 do
-               tod = (i == 1) ? 'am' : 'pm'
-                for j in 1..12
-                  time = "#{j}:00#{tod}"
-                  selected = 'selected' if @event.event_start_time == time
-                  event_start_time_options = event_start_time_options + "<option value='#{time}' #{selected}>#{time}</option>"
-                end
-              end
-          -%>
-          <td><%= select_tag :event_start_time,  event_start_time_options%></td>
+          <td><%= text_field_tag :event_start_time,  @event.event_start_time%></td>
         </tr>
         <tr>
           <td>Flyer:</td>
@@ -71,7 +60,7 @@
     <div id='preview_label'>Preview</div>
     <div id='main_event_container_div'> 
       <div class='flyer_div'>
-        <img src='<%= "#{@flyer.file_path}/#{@flyer.filename}" %>' /> 
+        <img id='p_flyer_img' src='<%= "#{@flyer.file_path}/#{@flyer.filename}" %>' /> 
       </div>    
       <div class='main_event_info' >
 	    <img src='/images/event_main_title.jpg' />
@@ -79,7 +68,7 @@
           <table class='info_table'>
           <tr>
             <td>
-               <label id='p_start_date'><%= @event.event_start_time.strftime('%m/%d/%Y') if @event.event_start_time %></label>
+               <label id='p_start_date'><%= @event.event_start_date.strftime('%m/%d/%Y') if @event.event_start_date %></label>
                <br/>
                <label id='p_start_time'><%= @event.event_start_time.strftime('%t') if @event.event_start_time %></label>
              </td>
@@ -128,7 +117,8 @@
 
   jQuery('#venue').keyup(function(event) {changeLabel('venue', 'p_venue');});
   jQuery('#event_address').keyup(function(event) {changeLabel('event_address', 'p_address');});
-  jQuery('#event_start_time').keyup(function(event) {changeLabel('event_start_time', 'p_start_time');});
+  jQuery('#event_start_time').change(function(event) {changeLabel('event_start_time', 'p_start_time');});
+  jQuery('#event_start_date').change(function(event) {changeLabel('event_start_date', 'p_start_date');});
   jQuery('#event_notes1_label').keyup(function(event) {changeLabel('event_notes1_label', 'p_notes1_label');});
   jQuery('#event_notes1').keyup(function(event) {changeLabel('event_notes1', 'p_notes1');});
   jQuery('#event_notes2_label').keyup(function(event) {changeLabel('event_notes2_label', 'p_notes2_label');});

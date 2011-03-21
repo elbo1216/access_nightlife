@@ -2,9 +2,13 @@ class AccessController < ApplicationController
   layout "base_layout"
 
   def index
-	@upcoming_events = UpcomingEvent.all
-	@upcoming_asian_events = @upcoming_events.select { |ue| ue.event_type == 'a' }
-	@upcoming_mixed_events = @upcoming_events.select { |ue| ue.event_type == 'm' }
+	   @upcoming_events = UpcomingEvent.all
+	   @upcoming_asian_events = @upcoming_events.select { |ue| ue.event_type == 'a' }
+	   @upcoming_mixed_events = @upcoming_events.select { |ue| ue.event_type == 'm' }
+    @image_arr = []
+    GalleryImage.find(:all, :conditions => 'is_slideshow_image is true').each do |ss|
+      @image_arr << "['#{ss.image_path}/#{ss.image_filename}','','','#{ss.image_comments}']" 
+    end
   end
 
   def add_request

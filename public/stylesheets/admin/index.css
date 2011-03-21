@@ -60,3 +60,12 @@ h1 {
 .odd {
 	background-color:#ffffff;
 }
+
+.errorMsg {
+	background-color:#e1b4b4;
+	font-style:italic;
+	width:100%;
+	border:solid 1px 'gray';
+	color:'grey';
+	padding:3px;
+}

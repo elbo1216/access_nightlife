@@ -1,0 +1,26 @@
+<div id='create_gallery_container'>
+   <%= form_tag "/admin/gallery/#{action}", {:multipart => true, :style => "margin:0px"} %>
+	  <table id='form_table'>
+     <tr>
+       <td>Gallery Name:</td>
+       <td><%= text_field_tag :gallery_name, gallery.name %></td>
+     </tr>
+     <tr>
+       <td>Event ID:</td>
+       <td><%= text_field_tag :event_id, gallery.event_id%></td>
+     </tr>
+     <tr>
+       <td>Event Name (Last 50 events displayed):</td>
+       <% options = @events.map {|e| "<options value='#{e.id}'>#{e.event_name}</option>"}.to_s -%>
+       <td><%= select_tag :event, options %></td>
+     </tr>
+     <tr>
+       <td>Make as current slideshow:</td>
+       <td><%= check_box_tag :is_current_slideshow, 1, gallery.is_current_slideshow %></td>
+     </tr>
+     <tr>
+       <td colspan=2><%= submit_tag "#{action.capitalize} Gallery" %></td>
+     </tr>
+   </table>
+   <%= hidden_field_tag 'id', params[:id] -%>
+</div>

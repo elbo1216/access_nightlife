@@ -1,0 +1,56 @@
+module Admin
+  class GalleryController < AdminController
+    layout "admin_layout"
+
+    def index
+      sql = "select * from galleries g left join gallery_images gm on g.id = gm.gallery_id where is_current_slideshow is true"
+      @slideshow = Gallery.find_by_sql(sql)
+
+      @galleries = Gallery.find_by_sql("select * from galleries g order by id desc limit 50")
+    end
+
+    def create
+      sql = "select id, event_name from events order by 1 desc limit 50"
+      @events = Event.find_by_sql(sql)
+      @gallery = Gallery.find_by_sql("select * from galleries where id = #{params[:id] || 0}").first || Gallery.new
+      if request.post?
+        if event_id = params[:event_id]
+          event = Event.find_by_sql("select * from events where id = #{event_id}").first
+          unless event.blank?
+            @gallery.event = event
+          else 
+            flash[:notice] = "Event does not exist.  Please enter an existing event id or choose an event from the drop down menu"
+            return
+          end
+        elsif params[:event]
+          @gallery.event_id = params[:event]
+        else
+          flash[:notice] = "A gallery needs an event.  Please enter an event id or choose an event from the drop down menu"
+          return
+        end
+        @gallery.name = params[:gallery_name]
+        @gallery.is_current_slideshow = params[:is_current_slideshow]
+        @gallery.gallery_path = "#{RAILS_ROOT}/public/images/gallery"
+        @gallery.save!
+        redirect_to :action => 'index'
+      end
+    end
+
+    def upload_file(file, gallery_id)
+      gi = GalleryImage.create!(:gallery_id => gallery_id) 
+      gi.upload_image(file)
+    end
+
+    def delete
+      id = params[:id]
+      gi = GalleryImage.find_by_sql("select * from gallery_images where gallery_id = #{id}")
+      gi.each do |i|
+        i.destroy
+      end
+      g = Gallery.find_by_sql("select * from galleries where id = #{id}")
+      raise g.inspect
+      g.destroy
+      redirect_to :action => 'index'
+    end
+  end
+end

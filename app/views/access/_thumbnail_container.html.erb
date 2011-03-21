@@ -2,12 +2,7 @@
 var mygallery=new fadeSlideShow({
 	wrapperid: "fadeshow1", //ID of blank DIV on page to house Slideshow
 	dimensions: [222, 167], //width/height of gallery in pixels. Should reflect dimensions of largest image
-	imagearray: [
-		["/images/newimages/thumb/party_0001.jpg","","","dlea ke aeaioen knawe iniaej"],
-		["/images/newimages/thumb/party_0002.jpg"],
-		["/images/newimages/thumb/party_0003.jpg","","","today at the hotspot"],
-		["/images/newimages/thumb/party_0004.jpg"]
-	],
+	imagearray: [<%= @image_arr.join(',') %>],
 	displaymode: {type:'auto', pause:3000, cycles:0, wraparound:false},
 	persist: false, //remember last viewed slide and recall within same session?
 	fadeduration: 500, //transition duration (milliseconds)

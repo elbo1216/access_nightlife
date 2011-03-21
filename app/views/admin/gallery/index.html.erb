@@ -1,0 +1,60 @@
+<script type="text/javascript" src="/javascripts/jquery-1.4.4.js"></script>
+<script type="text/javascript">
+function deleteGallery(id) {
+  var answer = confirm("Are you sure you want to remove this gallery?  Removing a gallery will remove all associated images in the gallery with it.");
+  if (answer) {
+    $('#gallery_form').attr("action", "/admin/gallery/delete/"+id);
+    $('#gallery_form').submit()
+  } else {
+    return;
+  }
+}
+
+function addToSlideshow(id) {
+  $('#gallery_form').attr("action", "/admin/gallery/add_gallery_to_slideshow/"+id);
+  $('#gallery_form').submit()
+}
+
+function removeFromSlideshow(id) {
+  $('#gallery_form').attr("action", "/admin/gallery/remove_gallery_from_slideshow/"+id);
+  $('#gallery_form').submit()
+
+}
+
+function viewImage(path) {
+  $('#image_display').attr('src', path);
+  $('#image_div').show();
+}
+</script>
+
+<% @title='Gallery Page' %>
+<div id='gallery_div'>
+  <div id='image_div'><img id='image_display' src=""><a href="javascript:$('#image_div').hide();">close</a></div>
+  <%= render :partial => 	'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Current Gallery Slideshow'} -%>
+  <br/>
+  <h1>Galleries</h1>
+  <%= link_to "Create Gallery", :action => 'create' -%>
+  <form id="gallery_form" style="margin:0px">
+    <table>
+      <tr>
+        <th>Gallery name</th>
+        <th>Event Name</th>
+        <th>Current Slideshow?</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        <th>Add Pictures</th>
+      </tr>
+      <% @galleries.each do |g| -%>
+        <tr>
+          <td><%= g.name -%></td>
+          <td><%= g.event.event_name if g.event -%></td>
+          <td><%= g.is_current_slideshow ? "<a href='removeFromSlideshow(#{g.id})'>Remove from Sideshow</a>" : "<a href='javascript:addToSlideshow(#{g.id})'>Add To Slideshow</a>" %></td>
+          <td><a href="javascript:deleteGallery(<%= g.id -%>)">Delete</a></td>
+          <td><%= link_to "Edit", :action => "edit", :id => g.id -%></td>
+          <td><%= link_to "Add Images", :action => "add_images", :id => g.id -%></td>
+        </tr>
+      <% end -%>
+    </table>
+  </form>
+</script>
+</div>
