@@ -2,7 +2,7 @@
 <% @title='Edit Gallery' %>
 <%= render :partial => 'create_form', :locals => {:gallery => @gallery, :action => "edit"} -%>
 <br/>
-<%= render :partial => 'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Gallery Images'} -%>
+<%= render :partial => 'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Gallery Images', :action => 'edit'} -%>
 <br />
 <h1>Add Images</h1>
 <%= render :partial => 'add_images_form', :locals => {:id => params[:id], :action => 'edit'} -%>

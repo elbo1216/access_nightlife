@@ -42,7 +42,7 @@ module Admin
       @events = Event.find_by_sql("select id, event_name from events order by 1 desc limit 50")
       if request.post?
         if event_id = params[:event_id]
-          event = Event.find(id)
+          event = Event.find(event_id)
           unless event.blank?
             @gallery.event = event
           else 
@@ -77,7 +77,7 @@ module Admin
             upload_file(params[k], params[:id]) unless params[k].blank?
           end
         end
-        redirect_to :action => params[:action]
+        redirect_to :action => params[:load_page], :id => params[:id]
       end
     end
 
@@ -100,8 +100,9 @@ module Admin
    def delete_image
      id = params[:id]
      gi = GalleryImage.find(id)
+     gallery = gi.gallery
      gi.destroy
-     redirect_to :action => 'index'
+     redirect_to :action => params['load_page'], :id => gallery.id
    end
 
     def add_gallery_to_slideshow

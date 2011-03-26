@@ -29,8 +29,8 @@ function viewImage(path) {
 
 <% @title='Gallery Page' %>
 <div id='gallery_div'>
-  <div id='image_div'><img id='image_display' src=""><a href="javascript:$('#image_div').hide();">close</a></div>
-  <%= render :partial => 	'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Current Gallery Slideshow'} -%>
+  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:$('#image_div').hide();">close</a></div>
+  <%= render :partial => 	'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Current Gallery Slideshow', :action => 'index'} -%>
   <br/>
   <h1>Galleries</h1>
   <%= link_to "Create Gallery", :action => 'create' -%>

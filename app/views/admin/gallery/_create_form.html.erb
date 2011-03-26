@@ -1,5 +1,5 @@
 <div id='create_gallery_container'>
-   <%= form_tag "/admin/gallery/#{action}", {:multipart => true, :style => "margin:0px"} %>
+   <% form_tag "/admin/gallery/#{action}", {:multipart => true, :style => "margin:0px"} do %>
 	  <table id='form_table'>
      <tr>
        <td>Gallery Name:</td>
@@ -23,4 +23,6 @@
      </tr>
    </table>
    <%= hidden_field_tag 'id', params[:id] -%>
+   <%= hidden_field_tag 'load_page', action -%>
+   <% end -%>
 </div>
