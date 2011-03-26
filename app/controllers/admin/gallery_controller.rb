@@ -3,8 +3,8 @@ module Admin
     layout "admin_layout"
 
     def index
-      sql = "select gm.* from galleries g left join gallery_images gm on g.id = gm.gallery_id where is_current_slideshow is true"
-      @slideshow = GalleryImage.find(:all, :joins => :gallery, :conditions => 'is_current_slideshow is true')
+      sql = "select gm.* from galleries g left join gallery_images gm on g.id = gm.gallery_id where is_current_slideshow  = 1"
+      @slideshow = GalleryImage.find(:all, :joins => :gallery, :conditions => 'is_current_slideshow  = 1')
 
       @galleries = Gallery.find_by_sql("select * from galleries g order by id desc limit 50")
     end
