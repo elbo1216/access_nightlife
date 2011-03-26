@@ -4,7 +4,7 @@ module Admin
 
     def index
       sql = "select gm.* from galleries g left join gallery_images gm on g.id = gm.gallery_id where is_current_slideshow is true"
-      @slideshow = GalleryImage.find(:all, :joins => 'join galleries', :conditions => 'is_current_slideshow is true')
+      @slideshow = GalleryImage.find(:all, :joins => :gallery, :conditions => 'is_current_slideshow is true')
 
       @galleries = Gallery.find_by_sql("select * from galleries g order by id desc limit 50")
     end
