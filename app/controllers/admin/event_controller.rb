@@ -47,7 +47,7 @@ module Admin
       @event = Event.find_by_sql("select * from events e where e.id = #{params['id']}").first
       @flyer = @event.flyer || Flyer.new
       if request.post?
-        if !params['flyer'].blank?
+        if @event.flyer.blank?
           @flyer.upload_flyer(params['flyer'])
           @flyer.save
          end
@@ -55,7 +55,7 @@ module Admin
         @event.event_name = params['event_name']
         @event.event_address = params['event_address']
         @event.venue = params['venue']
-        @event.flyer_id = flyer.id
+        @event.flyer_id = @flyer.id if @event.flyer.blank?
         @event.event_start_time = params['event_start_time']
         @event.event_notes1_label = params['event_notes1_label']
         @event.event_notes1 = params['event_notes1']
