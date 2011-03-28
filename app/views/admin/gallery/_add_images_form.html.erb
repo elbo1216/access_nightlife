@@ -16,6 +16,7 @@ function addEntry() {
 }
 </script>
 <div id='gallery_upload_div'>
+  <div class='notes'>All images need to adhere to a width to height ratio of 225:165 or else the images may look skewed</div>
   <a href='javascript:addEntry()'>Add File</a>
   <% form_tag "/admin/gallery/add_images/#{id}", :id => 'upload_image_form', :multipart => true do %>
     <table id="image_upload_table">

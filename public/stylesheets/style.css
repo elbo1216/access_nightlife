@@ -100,3 +100,9 @@ body {
 #footer {
 	margin:5px 0px 0px 10px;
 }
+
+/* For the Gallery slideshow images */
+.gallerylayer img {
+  height:165px;
+  width:225px;
+}

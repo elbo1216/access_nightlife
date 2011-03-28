@@ -20,3 +20,8 @@
 #gallery_upload_div table input {
   width:200px;
 }
+
+#gallery_upload_div .notes {
+  font-style:italic;
+		margin:0px 0px 20px 10px;
+}
