@@ -26,7 +26,7 @@ module Admin
         @event.event_name = params['event_name']
         @event.event_address = params['event_address']
         @event.venue = params['venue']
-        @event.flyer_id = flyer.id
+        @event.flyer_id = @flyer.id
         @event.event_start_time = params['event_start_time']
         @event.event_notes1_label = params['event_notes1_label']
         @event.event_notes1 = params['event_notes1']
