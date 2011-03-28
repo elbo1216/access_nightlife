@@ -127,6 +127,7 @@
     <tr>
       <th>Event Id</th>
       <th>Event Name</th>
+      <th>Event Start Date</th>
       <th>Event Start Time</th>
       <th>Event Venue</th>
       <th>Event Notes 1</th>
@@ -141,7 +142,8 @@
       <tr class='<%= row_class %>'>
         <%= "<td style='text-align:center;'>#{e.id}</td>" %>
         <%= "<td>#{e.event_name}</td>" %>
-        <%= "<td>#{e.event_start_time}</td>" %>
+        <%= "<td>#{e.event_start_date}</td>" %>
+        <%= "<td>#{e.event_start_time.strftime('%H:%M')}</td>" %>
         <%= "<td>#{e.venue}</td>" %>
         <%= "<td>#{e.event_notes1}</td>" %>
         <%= "<td>#{e.event_notes2}</td>" %>

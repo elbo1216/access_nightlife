@@ -27,13 +27,14 @@ module Admin
         @event.event_address = params['event_address']
         @event.venue = params['venue']
         @event.flyer_id = @flyer.id
+        @event.event_start_date = params['event_start_date']
         @event.event_start_time = params['event_start_time']
         @event.event_notes1_label = params['event_notes1_label']
         @event.event_notes1 = params['event_notes1']
-        @event.event_notes1_label = params['event_notes2_label']
-        @event.event_notes1 = params['event_notes2']
-        @event.event_notes1_label = params['event_notes3_label']
-        @event.event_notes1 = params['event_notes3']
+        @event.event_notes2_label = params['event_notes2_label']
+        @event.event_notes2 = params['event_notes2']
+        @event.event_notes3_label = params['event_notes3_label']
+        @event.event_notes3 = params['event_notes3']
         @event.save!
 
         flash[:notice] = "Event Saved"
@@ -56,13 +57,14 @@ module Admin
         @event.event_address = params['event_address']
         @event.venue = params['venue']
         @event.flyer_id = @flyer.id if @event.flyer.blank?
+        @event.event_start_date = params['event_start_date']
         @event.event_start_time = params['event_start_time']
         @event.event_notes1_label = params['event_notes1_label']
         @event.event_notes1 = params['event_notes1']
-        @event.event_notes1_label = params['event_notes2_label']
-        @event.event_notes1 = params['event_notes2']
-        @event.event_notes1_label = params['event_notes3_label']
-        @event.event_notes1 = params['event_notes3']
+        @event.event_notes2_label = params['event_notes2_label']
+        @event.event_notes2 = params['event_notes2']
+        @event.event_notes3_label = params['event_notes3_label']
+        @event.event_notes3 = params['event_notes3']
         @event.save!
         
         flash[:notice] = "Event Updated"
