@@ -74,7 +74,7 @@ module Admin
     end  
 
     def change_upcoming_event
-      @upcoevent_id = ing_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
+      @upcoming_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
       @upcoming_event.event_id = params['event_id']
       @upcoming_event.save!
       @upcoming_event.reload
