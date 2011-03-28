@@ -14,8 +14,8 @@ module Admin
       @events = Event.find_by_sql(sql)
       @gallery = Gallery.new
       if request.post?
-        if event_id = params[:event_id]
-          event = Event.find(id)
+        if !params[:event_id].blank?
+          event = Event.find(params[:event_id])
           unless event.blank?
             @gallery.event = event
           else 
@@ -41,8 +41,8 @@ module Admin
       @slideshow = GalleryImage.find(:all, :conditions => "gallery_id = #{params[:id]}")
       @events = Event.find_by_sql("select id, event_name from events order by 1 desc limit 50")
       if request.post?
-        if event_id = params[:event_id]
-          event = Event.find(event_id)
+        if !params[:event_id].blank?
+          event = Event.find(params[:event_id])
           unless event.blank?
             @gallery.event = event
           else 
