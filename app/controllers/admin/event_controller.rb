@@ -47,7 +47,7 @@ module Admin
       @event = Event.find_by_sql("select * from events e where e.id = #{params['id']}").first
       @flyer = @event.flyer || Flyer.new
       if request.post?
-        if params['flyer'].blank?
+        if !params['flyer'].blank?
           @flyer.upload_flyer(params['flyer'])
           @flyer.save
          end
@@ -72,7 +72,7 @@ module Admin
     end  
 
     def change_upcoming_event
-      @upcoming_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
+      @upcoevent_id = ing_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
       @upcoming_event.event_id = params['event_id']
       @upcoming_event.save!
       @upcoming_event.reload

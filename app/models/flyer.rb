@@ -9,7 +9,7 @@ class Flyer < ActiveRecord::Base
     if upload.blank?
       return
     end
-    self.file_path = "#{RAILS_ROOT}/public/images/flyers/"
+    self.file_path = "/images/flyers/"
     self.filename = "#{ActiveSupport::SecureRandom.hex(10)}_#{Time.now.strftime("%d_%m_%y")}.jpg" until unique_filename?
     file = File.join(self.file_path, self.filename)
     File.open(file, "wb") { |f| f.write(upload['datafile'].read) }
