@@ -22,7 +22,7 @@ module Admin
             flash[:notice] = "Event does not exist.  Please enter an existing event id or choose an event from the drop down menu"
             return
           end
-        elsif params[:event]
+        elsif !params[:event].blank?
           @gallery.event_id = params[:event]
         else
           flash[:notice] = "A gallery needs an event.  Please enter an event id or choose an event from the drop down menu"

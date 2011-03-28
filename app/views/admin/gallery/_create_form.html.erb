@@ -11,7 +11,7 @@
      </tr>
      <tr>
        <td>Event Name (Last 50 events displayed):</td>
-       <% options = @events.map {|e| "<options value='#{e.id}'>#{e.event_name}</option>"}.to_s -%>
+       <% options = @events.map {|e| "<option value='#{e.id}'>#{e.event_name}</option>"}.unshift('<option value=''></option>').join()-%>
        <td><%= select_tag :event, options %></td>
      </tr>
      <tr>
