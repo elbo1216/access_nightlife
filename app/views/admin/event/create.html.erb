@@ -25,7 +25,10 @@
         </tr>
         <tr>
           <td>Flyer:</td>
-          <td><%= file_field 'flyer', 'datafile' %></td>
+          <td>
+                <%= file_field 'flyer', 'datafile', :style => "display:#{@event.flyer ? 'none' : 'block'}" %>
+                <%= "<div id='flyer_filename'>#{@event.flyer.filename}<br/><a href='javascript:changeFlyer()'>change</a></div>" -%>
+          </td>
         </tr>
         <tr>
           <td>Note Label 1:</td>
@@ -111,6 +114,11 @@
 <div class='clear'></div>
 <script>
   jQuery.noConflict();
+  function changeFlyer() {
+    jQuery('#flyer_datafile').show();
+    jQuery('#flyer_filename').hide();
+  }
+
   function changeLabel(input_id, label_id) {
     jQuery('#'+label_id).html(jQuery('#'+input_id).val());
   }

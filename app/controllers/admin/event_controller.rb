@@ -16,17 +16,15 @@ module Admin
       @event = Event.new
       @flyer = Flyer.new
       if request.post?
-        @flyer.upload_flyer(params['flyer'])
-        begin
+        if params['flyer']
+          @flyer.upload_flyer(params['flyer'])
           @flyer.save!
-        rescue
-          raise @flyer.errors.inspect
         end
 
         @event.event_name = params['event_name']
         @event.event_address = params['event_address']
         @event.venue = params['venue']
-        @event.flyer_id = @flyer.id
+        @event.flyer_id = @flyer.id if params['flyer']
         @event.event_start_date = params['event_start_date']
         @event.event_start_time = params['event_start_time']
         @event.event_notes1_label = params['event_notes1_label']
@@ -72,6 +70,13 @@ module Admin
 
       render :create
     end  
+
+    def delete
+      @event = Event.find(params[:id])
+      @event.destroy
+      flash[:notice] = "Event deleted"
+      render :index
+    end
 
     def change_upcoming_event
       @upcoming_event = UpcomingEvent.find_by_sql("select * from upcoming_events where id = #{params['id']}").first
