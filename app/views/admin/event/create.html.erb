@@ -1,7 +1,7 @@
 <% @title=@method + ' Event' %>
 <div id='create_event_container'>
   <div id='form_container'>
-    <%= form_tag  "/admin/event/#{@method.downcase}", :multipart => true %>
+    <%= form_tag  "/admin/event/#{@method.downcase}/#{params['id']}", :multipart => true %>
 	  <table id='form_table'>
         <tr>
           <td>Event Name:</td>
