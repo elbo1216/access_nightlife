@@ -42,7 +42,7 @@ module Admin
     end
 
     def update
-	  @method = 'Update'
+	     @method = 'Update'
       @event = Event.find_by_sql("select * from events e where e.id = #{params['id']}").first
       @flyer = @event.flyer || Flyer.new
       if request.post?
@@ -66,6 +66,8 @@ module Admin
         @event.save!
         
         flash[:notice] = "Event Updated"
+        redirect_to :action => 'index'
+        return
       end
 
       render :create
