@@ -33,7 +33,7 @@ function closeImage() {
 
 <% @title='Gallery Page' %>
 <div id='gallery_div'>
-  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:">close</a></div>
+  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:closeImage();">close</a></div>
   <h1>Galleries</h1>
   <%= link_to "Create Gallery", :action => 'create' -%>
   <form id="gallery_form" style="margin:0px">
