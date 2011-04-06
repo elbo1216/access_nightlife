@@ -51,7 +51,7 @@ function saveComment(id) {
       <th>Comments</th>
       <th>In Slideshow?</th>
       <th>Delete Image</th>
-      <th>Edit Comment</th>
+      <th>Edit Caption</th>
       <th>View Image</th>
     </tr>
     <% slideshow.each do |ss| -%>
@@ -68,8 +68,8 @@ function saveComment(id) {
         </td>
         <td><%= link_to "Delete", :action => "delete_image", :id => ss.id, :load_page => action -%></td>
         <td>
-            <div id='edit_comment_<%= ss.id -%>'><a href='javascript:editComment(<%= ss.id -%>)'>Edit Comment</a></div>
-            <div id='save_comment_<%= ss.id -%>' style='display:none' ><a href='javascript:saveComment(<%= ss.id -%>)'>Save Comment</a></div>
+            <div id='edit_comment_<%= ss.id -%>'><a href='javascript:editComment(<%= ss.id -%>)'>Edit Caption</a></div>
+            <div id='save_comment_<%= ss.id -%>' style='display:none' ><a href='javascript:saveComment(<%= ss.id -%>)'>Save Caption</a></div>
         </td>
         <td><a href="javascript:viewImage('<%= "#{ss.image_path}/#{ss.image_filename}"-%>')">View</a></td>
       </tr>

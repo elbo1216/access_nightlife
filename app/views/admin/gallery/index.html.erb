@@ -25,13 +25,15 @@ function viewImage(path) {
   $('#image_display').attr('src', path);
   $('#image_div').show();
 }
+
+function closeImage() {
+  $('#image_div').hide();
+}
 </script>
 
 <% @title='Gallery Page' %>
 <div id='gallery_div'>
-  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:$('#image_div').hide();">close</a></div>
-  <%= render :partial => 	'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Current Gallery Slideshow', :action => 'index'} -%>
-  <br/>
+  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:">close</a></div>
   <h1>Galleries</h1>
   <%= link_to "Create Gallery", :action => 'create' -%>
   <form id="gallery_form" style="margin:0px">
@@ -56,5 +58,6 @@ function viewImage(path) {
       <% end -%>
     </table>
   </form>
-</script>
+  <br/>
+  <%= render :partial => 	'gallery_images_table', :locals => {:slideshow => @slideshow, :title => 'Current Gallery Slideshow', :action => 'index'} -%>
 </div>
