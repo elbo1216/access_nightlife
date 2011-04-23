@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :user_groups
 
   def User.find_by_is_admin_user_and_email(login)
-    User.find(:first, :conditions => "is_admin_user is true and email = '#{login}'")
+    User.find(:first, :conditions => "is_admin_user = 1 and email = '#{login}'")
   end
 
   def valid_password?(pass)
