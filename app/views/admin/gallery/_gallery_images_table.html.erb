@@ -49,10 +49,12 @@ function saveComment(id) {
       <th>Gallery Name</th>
       <th>Filename</th>
       <th>Comments</th>
-      <th>In Slideshow?</th>
       <th>Delete Image</th>
       <th>Edit Caption</th>
       <th>View Image</th>
+      <% if current_user.is_root? %>
+        <th>In Slideshow?</th>
+      <% end -%>
     </tr>
     <% slideshow.each do |ss| -%>
       <tr>
@@ -62,16 +64,18 @@ function saveComment(id) {
             <div id='comment_locked_<%= ss.id -%>'><%= ss.image_comments -%></div>
             <div id='comment_unlocked_<%= ss.id -%>' style='display:none' ><input id='new_comment_<%= ss.id -%>' type='text' value='<%=ss.image_comments -%>'></div>
         </td>
-        <td>
-            <div id='add_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'none' : 'block' -%>;'><a href='javascript:addImageToSlideshow(<%= ss.id -%>)'>Add Image to Slideshow</a></div>
-            <div id='remove_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'block' : 'none' -%>;' ><a href='javascript:removeImageFromSlideshow(<%= ss.id -%>)'>Remove Image from Slideshow</a></div>
-        </td>
         <td><%= link_to "Delete", :action => "delete_image", :id => ss.id, :load_page => action -%></td>
         <td>
             <div id='edit_comment_<%= ss.id -%>'><a href='javascript:editComment(<%= ss.id -%>)'>Edit Caption</a></div>
             <div id='save_comment_<%= ss.id -%>' style='display:none' ><a href='javascript:saveComment(<%= ss.id -%>)'>Save Caption</a></div>
         </td>
         <td><a href="javascript:viewImage('<%= "#{ss.image_path}/#{ss.image_filename}"-%>')">View</a></td>
+        <% if current_user.is_root? -%>
+          <td>
+              <div id='add_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'none' : 'block' -%>;'><a href='javascript:addImageToSlideshow(<%= ss.id -%>)'>Add Image to Slideshow</a></div>
+              <div id='remove_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'block' : 'none' -%>;' ><a href='javascript:removeImageFromSlideshow(<%= ss.id -%>)'>Remove Image from Slideshow</a></div>
+          </td>
+        <% end -%>
       </tr>
     <% end -%>
   </table>

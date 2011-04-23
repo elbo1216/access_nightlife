@@ -4,44 +4,15 @@
 }
 
 .clear {
-	both:clear;
+	clear:both;
 }
 
-#main_container {
-	margin:auto;
-	width:1050px;
-}
-
-#admin_title {
-	height:95px; 
-	border-bottom:2px solid gray;
+.non_link {
+	color:gray;
 }
 
 #admin_body {
 	width:1050px;
-}
-
-#logo_div {
-	float:left;
-}
-
-#title_div {
-	float:left;
-	font-family:'neuropol';
-	font-size:55px;
-	margin:30px 0px 0px 20px;
-}
-
-#admin_nav {
-	margin: 10px 0px 20px 20px;
-	font-size:20px;
-	color: brown;
-}
-
-#admin_nav a {
-	text-decoration:none;
-	color: gray;
-	margin:0px 5px 0px 5px;
 }
 
 #admin_frame_top {
@@ -68,13 +39,31 @@
 	height:10px;
 }
 
-#title {
-	font-size:25px;
-	padding:10px 0px 20px 0px;
+#admin_nav {
+ float:left;
+	margin: 10px 0px 20px 20px;
+	font-size:20px;
+	color: brown;
+ width:97%;
 }
 
-.non_link {
-	color:gray;
+#admin_nav a {
+	text-decoration:none;
+	color: gray;
+	margin:0px 5px 0px 5px;
+}
+
+#admin_nav_left {
+ float:left;
+}
+
+#admin_nav_right {
+ float:right;
+}
+
+#admin_title {
+	height:95px; 
+	border-bottom:2px solid gray;
 }
 
 #flash_notice {
@@ -83,4 +72,25 @@
   color:red;
   font-style:italic;
   background-color: yellow;
+}
+
+#logo_div {
+	float:left;
+}
+
+#main_container {
+	margin:auto;
+	width:1050px;
+}
+
+#title {
+	font-size:25px;
+	padding:10px 0px 20px 0px;
+}
+
+#title_div {
+	float:left;
+	font-family:'neuropol';
+	font-size:55px;
+	margin:30px 0px 0px 20px;
 }

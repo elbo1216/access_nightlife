@@ -4,6 +4,7 @@
     <%= stylesheet_link_tag "admin/index" %>
     <%= stylesheet_link_tag "admin/create" %>
     <%= stylesheet_link_tag "admin/gallery" %>
+    <%= stylesheet_link_tag "admin/user" %>
     <%= stylesheet_link_tag "admin/jquery-ui-css/jquery-ui-1.8.9.custom" %>
     <%= javascript_include_tag 'prototype' %>
     <%= javascript_include_tag 'jquery-1.4.4' %>
@@ -18,22 +19,29 @@
         <div id='title_div'>Access Nightlife Admin</div>
       </div>
 	  <div class='clear'></div>
-      <div id='admin_nav'>
-        <a href='/admin/event'>Event</a> | 
-        <a href='/admin/gallery'>Gallery</a> | 
-        <a href='/admin/event'>Users</a> | 
-        <a href='/admin/event'>Subscriptions</a> | 
-      </div>
-      <div id='admin_body'>
-	    <div id='admin_frame_top'></div>
-	    <div id='admin_frame_middle'>
-           <div id='admin_frame_middle_container'>
-		     <div id='title'><%= @title %></div>
+     <div id='admin_nav'>
+       <div id='admin_nav_left'>
+         <a href='/admin/event'>Event</a> | 
+         <a href='/admin/gallery'>Gallery</a> | 
+         <a href='/admin/user'>Users</a> | 
+         <a href='/admin/event'>Subscriptions</a> | 
+       </div>
+       <div id='admin_nav_right'>
+         <%= @current_user.email -%>
+         <a href='/logout'>Logout</a>
+       </div>
+     </div>
+     <div class='clear'></div>
+     <div id='admin_body'>
+	      <div id='admin_frame_top'></div>
+	      <div id='admin_frame_middle'>
+         <div id='admin_frame_middle_container'>
+		         <div id='title'><%= @title %></div>
              <%= yield %>
-           </div>
-        </div>
-	    <div id='admin_frame_bottom'></div>
-      </div>
+         </div>
+       </div>
+	      <div id='admin_frame_bottom'></div>
+     </div>
     </div>
   </body>
 </html>

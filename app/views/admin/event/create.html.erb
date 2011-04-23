@@ -5,54 +5,75 @@
 	  <table id='form_table'>
         <tr>
           <td>Event Name:</td>
-          <td><%= text_field_tag :event_name, @event.event_name %></td>
+          <td><%= text_field_tag 'event[event_name]', @event.event_name %></td>
         </tr>
         <tr>
           <td>Venue:</td>
-          <td><%= text_field_tag :venue, @event.venue %></td>
+          <td><%= text_field_tag 'event[venue]', @event.venue %></td>
         </tr>
         <tr>
           <td>Address:</td>
-          <td><%= text_field_tag :event_address, @event.event_address %></td>
+          <td><%= text_field_tag 'event[event_address]', @event.event_address %></td>
         </tr>
         <tr>
           <td>Start Date:</td>
-          <td><%= text_field_tag :event_start_date, @event.event_start_date %></td>
+          <td><%= text_field_tag 'event[event_start_date]', @event.event_start_date %></td>
         </tr>
         <tr>
           <td>Start Time:</td>
-          <td><%= text_field_tag :event_start_time,  @event.event_start_time%></td>
+          <td><%= text_field_tag 'event[event_start_time]',  @event.event_start_time%></td>
         </tr>
         <tr>
           <td>Flyer:</td>
           <td>
                 <%= file_field 'flyer', 'datafile', :style => "display:#{@event.flyer ? 'none' : 'block'}" %>
-                <%= "<div id='flyer_filename'>#{@event.flyer.filename}<br/><a href='javascript:changeFlyer()'>change</a></div>" -%>
+                <%= "<div id='flyer_filename'>#{@flyer.filename}<br/><a href='javascript:changeFlyer()'>change</a></div>" -%>
           </td>
         </tr>
         <tr>
           <td>Note Label 1:</td>
-          <td><%= text_field_tag :event_notes1_label, @event.event_notes1_label %></td>
+          <td><%= text_field_tag 'event[event_notes1_label]', @event.event_notes1_label %></td>
         </tr>
         <tr>
           <td>Notes 1:</td>
-          <td><%= text_field_tag :event_notes1, @event.event_notes1 %></td>
+          <td><%= text_field_tag 'event[event_notes1]', @event.event_notes1 %></td>
+        </tr>
+        <tr>
+          <td>Notes 1 Styles:</td>
+          <td>
+              bold <%= check_box_tag 'event_styles1[]', 'bold', @event.event_notes_styles(1)[:bold], :onclick => "updateNotes(1, 'bold', this)" %>
+              italic <%= check_box_tag 'event_styles1[]', 'italics', @event.event_notes_styles(1)[:italics], :onclick => "updateNotes(1, 'italic', this)" %>
+          </td>
         </tr>
         <tr>
           <td>Note Label 2:</td>
-          <td><%= text_field_tag :event_notes2_label, @event.event_notes1_label %></td>
+          <td><%= text_field_tag 'event[event_notes2_label]', @event.event_notes1_label %></td>
         </tr>
         <tr>
           <td>Notes 2:</td>
-          <td><%= text_field_tag :event_notes2, @event.event_notes2 %></td>
+          <td><%= text_field_tag 'event[event_notes2]', @event.event_notes2 %></td>
+        </tr>
+        <tr>
+          <td>Notes 2 Styles:</td>
+          <td>
+              bold <%= check_box_tag 'event_styles2[]', 'bold', @event.event_notes_styles(2)[:bold], :onclick => 'updateNotes(2, "bold", this)' %>
+              italic <%= check_box_tag 'event_styles2[]', 'italics', @event.event_notes_styles(2)[:italics], :onclick => 'updateNotes(2, "italic", this)' %>
+          </td>
         </tr>
         <tr>
           <td>Note Label 3:</td>
-          <td><%= text_field_tag :event_notes3_label, @event.event_notes3_label %></td>
+          <td><%= text_field_tag 'event[event_notes3_label]', @event.event_notes3_label %></td>
         </tr>
         <tr>
           <td>Notes 3:</td>
-          <td><%= text_field_tag :event_notes3, @event.event_notes3 %></td>
+          <td><%= text_field_tag 'event[event_notes3]', @event.event_notes3 %></td>
+        </tr>
+        <tr>
+          <td>Notes 3 Styles:</td>
+          <td>
+              bold <%= check_box_tag 'event_styles3[]', 'bold', @event.event_notes_styles(3)[:bold], :onclick => 'updateNotes(3, "bold", this)' %>
+              italic <%= check_box_tag 'event_styles3[]', 'italics', @event.event_notes_styles(3)[:italics], :onclick => 'updateNotes(3, "italic", this)' %>
+          </td>
         </tr>
         <tr>
           <td colspan=2><%= submit_tag 'Sumbit' %></td>
@@ -121,6 +142,27 @@
 
   function changeLabel(input_id, label_id) {
     jQuery('#'+label_id).html(jQuery('#'+input_id).val());
+  }
+
+  function updateNotes(note, style, me) {
+    if (style == 'bold') {
+      if (jQuery(me).attr('checked')) {
+        jQuery('#p_notes'+note).css('font-weight', style);
+        jQuery('#p_notes'+note+'_label').css('font-weight', style);
+      } else {
+        jQuery('#p_notes'+note).css('font-weight', '');
+        jQuery('#p_notes'+note+'_label').css('font-weight', '');
+      }
+    }
+    if (style == 'italic') {
+      if (jQuery(me).attr('checked')) {
+        jQuery('#p_notes'+note).css('font-style', style);
+        jQuery('#p_notes'+note+'_label').css('font-style', style);
+      } else {
+        jQuery('#p_notes'+note).css('font-style', '');
+        jQuery('#p_notes'+note+'_label').css('font-style', '');
+      }
+    }
   }
 
   jQuery('#venue').keyup(function(event) {changeLabel('venue', 'p_venue');});

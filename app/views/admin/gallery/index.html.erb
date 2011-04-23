@@ -41,19 +41,23 @@ function closeImage() {
       <tr>
         <th>Gallery name</th>
         <th>Event Name</th>
-        <th>Current Slideshow?</th>
-        <th>Delete</th>
-        <th>Edit</th>
+        <% if current_user.is_root? -%>
+          <th>Current Slideshow?</th>
+          <th>Delete</th>
+          <th>Edit</th>
+        <% end -%>
         <th>Add Pictures</th>
       </tr>
       <% @galleries.each do |g| -%>
         <tr>
           <td><%= g.name -%></td>
           <td><%= g.event.event_name if g.event -%></td>
-          <td><%= g.is_current_slideshow ? "<a href='removeFromSlideshow(#{g.id})'>Remove from Sideshow</a>" : "<a href='javascript:addToSlideshow(#{g.id})'>Add To Slideshow</a>" %></td>
-          <td><a href="javascript:deleteGallery(<%= g.id -%>)">Delete</a></td>
-          <td><%= link_to "Edit", :action => "edit", :id => g.id -%></td>
-          <td><%= link_to "Add Images", :action => "add_images", :id => g.id -%></td>
+          <% if current_user.is_root? -%>
+            <td><%= g.is_current_slideshow ? "<a href='removeFromSlideshow(#{g.id})'>Remove from Sideshow</a>" : "<a href='javascript:addToSlideshow(#{g.id})'>Add To Slideshow</a>" %></td>
+            <td><a href="javascript:deleteGallery(<%= g.id -%>)">Delete</a></td>
+            <td><%= link_to "Edit", :action => "edit", :id => g.id -%></td>
+            <td><%= link_to "Add Images", :action => "add_images", :id => g.id -%></td>
+          <% end -%>
         </tr>
       <% end -%>
     </table>

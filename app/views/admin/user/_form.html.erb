@@ -1,0 +1,42 @@
+<% form_tag  do %>
+  <div id="user_info" >
+  <p>
+    <%= label_tag "user[firstname]", "First Name"%><br />
+    <%= text_field_tag "user[firstname]", @user.firstname %>
+  </p>
+  <p>
+    <%= label_tag "user[lastname]", "Last Name"%><br />
+    <%= text_field_tag "user[lastname]", @user.lastname %>
+  </p>
+  <p>
+    <%= label_tag "user[email]", "Email" %><br />
+    <%= text_field_tag "user[email]", @user.email  %>
+  </p>
+  <p>
+    <%= label_tag "user[password]", "Password" %><br />
+    <%= text_field_tag "user[password]", @user.password  %>
+  </p>
+  <p>
+    <%= label_tag "user[phone]", "Phone Number" %><br />
+    <%= text_field_tag "user[phone]", @user.phone  %>
+  </p>
+  <p>
+    <%= label_tag "user[birthday]", "Birthday" %><br />
+    <%= text_field_tag "user[birthday]", @user.birthday  %>
+  </p>
+  <p>
+    <%= label_tag "user[is_admin_user]", "Admin User?" %><br />
+    <%= check_box_tag "user[is_admin_user]", true ,@user.is_admin_user  %>
+  </p>
+  <p><%= submit_tag "Submit" %></p>
+</div>
+<div id="groups">
+  <span>Groups</span></br/>
+  <% @groups.each do |g| -%> 
+    <%= g.name %><%= check_box_tag "groups[]", g.id, @gm.include?(g.id) ? true : false %>
+    <br />
+  <% end -%>
+</div>
+<div class="clear">
+<% end %>
+

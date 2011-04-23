@@ -1,0 +1,14 @@
+#groups {
+  float:left;
+  width:50%;
+}
+
+#groups input {
+  float:left;
+  width:20px;
+}
+
+#user_info {
+  float:left;
+  width:50%;
+}

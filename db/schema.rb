@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110307083244) do
+ActiveRecord::Schema.define(:version => 20110418040002) do
 
   create_table "event_requests", :force => true do |t|
     t.integer   "user_id"
@@ -21,19 +21,22 @@ ActiveRecord::Schema.define(:version => 20110307083244) do
 
   create_table "events", :force => true do |t|
     t.integer   "flyer_id"
-    t.string    "event_name",         :limit => 100
+    t.string    "venue",               :limit => 50
+    t.string    "event_name",          :limit => 100
     t.time      "event_start_time"
-    t.string    "event_address",      :limit => 50
-    t.string    "event_notes1",       :limit => 50
-    t.string    "event_notes2",       :limit => 50
-    t.string    "event_notes3",       :limit => 50
-    t.timestamp "created_at",                        :null => false
-    t.timestamp "updated_at",                        :null => false
-    t.string    "venue",              :limit => 50
-    t.string    "event_notes1_label", :limit => 50
-    t.string    "event_notes2_label", :limit => 50
-    t.string    "event_notes3_label", :limit => 50
     t.date      "event_start_date"
+    t.string    "event_address",       :limit => 50
+    t.string    "event_notes1_label",  :limit => 50
+    t.string    "event_notes1",        :limit => 50
+    t.string    "event_notes1_styles", :limit => 50
+    t.string    "event_notes2_label",  :limit => 50
+    t.string    "event_notes2",        :limit => 50
+    t.string    "event_notes2_styles", :limit => 50
+    t.string    "event_notes3_label",  :limit => 50
+    t.string    "event_notes3",        :limit => 50
+    t.string    "event_notes3_styles", :limit => 50
+    t.timestamp "created_at",                         :null => false
+    t.timestamp "updated_at",                         :null => false
   end
 
   create_table "flyers", :force => true do |t|
@@ -53,13 +56,20 @@ ActiveRecord::Schema.define(:version => 20110307083244) do
   end
 
   create_table "gallery_images", :force => true do |t|
-    t.integer   "gallery_id"
+    t.integer   "gallery_id",                                           :null => false
     t.string    "image_path",         :limit => 50,                     :null => false
     t.string    "image_filename",     :limit => 50,                     :null => false
     t.string    "image_comments",     :limit => 100
     t.boolean   "is_slideshow_image",                :default => false, :null => false
     t.timestamp "created_at",                                           :null => false
     t.timestamp "updated_at",                                           :null => false
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string    "name"
+    t.string    "group_key",  :limit => 100
+    t.timestamp "created_at",                :null => false
+    t.timestamp "updated_at",                :null => false
   end
 
   create_table "newsletter_requests", :force => true do |t|
@@ -70,21 +80,37 @@ ActiveRecord::Schema.define(:version => 20110307083244) do
 
   create_table "upcoming_events", :force => true do |t|
     t.integer   "event_id"
-    t.string    "event_type",  :limit => 1
+    t.string    "event_type",  :limit => 1, :null => false
+    t.integer   "event_order"
     t.timestamp "created_at",               :null => false
     t.timestamp "updated_at",               :null => false
-    t.integer   "event_order"
+  end
+
+  create_table "user_groups", :force => true do |t|
+    t.integer   "user_id"
+    t.integer   "group_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string    "firstname",     :limit => 50
-    t.string    "lastname",      :limit => 50
-    t.string    "email",         :limit => 50
-    t.string    "phone",         :limit => 10
-    t.string    "birthday",      :limit => 8
+    t.string    "firstname"
+    t.string    "lastname"
+    t.string    "email"
+    t.string    "phone",              :limit => 10
+    t.string    "birthday",           :limit => 8
     t.boolean   "is_admin_user"
-    t.timestamp "created_at",                  :null => false
-    t.timestamp "updated_at",                  :null => false
+    t.string    "crypted_password"
+    t.string    "password_salt"
+    t.string    "persistence_token"
+    t.integer   "login_count"
+    t.integer   "failed_login_count"
+    t.datetime  "current_login_at"
+    t.datetime  "last_login_at"
+    t.string    "current_login_ip",   :limit => 100
+    t.string    "last_login_ip",      :limit => 100
+    t.timestamp "created_at",                        :null => false
+    t.timestamp "updated_at",                        :null => false
   end
 
 end

@@ -1,0 +1,29 @@
+.clear {
+  clear:both;
+}
+
+body {
+  margin:auto;
+  text-align:center;
+}
+
+#content {
+  margin:20px;
+  font-size:20px;
+}
+
+#logo_div {
+  float:left;
+}
+
+#outer_div {
+  margin:100px 500px;
+  text-align:center;
+}
+
+#title_div {
+  float:left;
+  color:red;
+  font-size:48px;
+  padding:20px;
+}

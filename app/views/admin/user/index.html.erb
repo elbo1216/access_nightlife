@@ -1,0 +1,54 @@
+<% @title = "Users Page" -%>
+
+<%= link_to "Create a New User", :action => 'create' %>
+
+
+<div id='user_search'>
+  <% form_tag do -%>
+    Search:
+    <p>
+      <%= label_tag 'firstname', 'First Name' %>
+      <%= text_field_tag 'firstname' %>
+    </p>
+    <p>
+      <%= label_tag 'lastname', 'Last Name' %>
+      <%= text_field_tag 'lastname' %>
+    </p>
+    <p>
+      <%= label_tag 'email', 'First Name' %>
+      <%= text_field_tag 'email' %>
+    </p>
+    <p>
+      <%= submit_tag 'Submit' %>
+    </p>
+  <% end -%>
+
+  <table id='user_table'>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Birthday</th>
+      <th>Admin User?</th>
+      <th>Groups</th>
+      <th>Edit User</th>
+    </tr>
+    <% @users.each do |u| -%>
+      <tr>
+        <td><%= u.firstname %></td>
+        <td><%= u.lastname %></td>
+        <td><%= u.email %></td>
+        <td><%= u.phone %></td>
+        <td><%= u.birthday %></td>
+        <td><%= u.is_admin_user ? "Yes" : "No" %></td>
+        <td>
+            <% if u.user_groups -%>
+              <%= u.user_groups.map {|g| g.group.name}.join(',') %>
+            <% end -%>
+        </td>
+       <td><%= link_to "Edit", :action => "edit", :id => u.id %>
+      </tr>
+    <% end -%>
+  <table>
+</div>

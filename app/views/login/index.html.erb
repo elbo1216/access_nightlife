@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <%= stylesheet_link_tag "login.css"%>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+<body>
+  <div id='login_container'>
+	   <div id='admin_frame_top'></div>
+	   <div id='admin_frame_middle'>
+      <div id='left_container'>
+    		  <div id='logo_div'><img src='/images/access_logo.png' /></div>
+        <div id='title_div'>Access Nightlife Admin</div>
+      </div>
+      <div id='right_container'>
+        <%= form_tag %>
+          <table id='login_form_table'>
+            <tr>
+              <td><%= label_tag :login, 'Login'%></td>
+              <td><%= text_field_tag :login %></td>
+            </tr>
+            <tr>
+              <td><%= label_tag :password, 'Password' %></td>
+              <td><%= password_field_tag :password %></td>
+            </tr>
+            <tr>
+              <td colspan=2><%= submit_tag "Submit" %></td>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <div class='clear'></div>
+	   <div id='admin_frame_bottom'></div>
+  </div>
+</div>
+</body>
+</html>

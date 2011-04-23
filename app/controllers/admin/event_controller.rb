@@ -1,43 +1,35 @@
 module Admin
   class EventController < AdminController
-	layout "admin_layout"
+	   layout "admin_layout"
+    before_filter :authorize_root
 
-	def index
-      @upcoming_asian_events = UpcomingEvent.find_by_sql("select * from upcoming_events ue where event_type = 'a' order by event_order") 
-      @upcoming_mixed_events = UpcomingEvent.find_by_sql("select * from upcoming_events where event_type = 'm' order by event_order") 
-      if @upcoming_asian_events.size < UpcomingEvent::MAX_EVENTS || @upcoming_mixed_events.size < UpcomingEvent::MAX_EVENTS
-        UpcomingEvent.synchronize_upcoming_events
-      end
-      @events = Event.find_by_sql("select * from events e order by e.id desc limit 20")
-	end
+	     def index
+           @upcoming_asian_events = UpcomingEvent.find_by_sql("select * from upcoming_events ue where event_type = 'a' order by event_order") 
+           @upcoming_mixed_events = UpcomingEvent.find_by_sql("select * from upcoming_events where event_type = 'm' order by event_order") 
+           if @upcoming_asian_events.size < UpcomingEvent::MAX_EVENTS || @upcoming_mixed_events.size < UpcomingEvent::MAX_EVENTS
+             UpcomingEvent.synchronize_upcoming_events
+           end
+           @events = Event.find_by_sql("select * from events e order by e.id desc limit 20")
+     	end
 
-    def create
-	  @method = 'Create'
-      @event = Event.new
-      @flyer = Flyer.new
-      if request.post?
-        if params['flyer']
-          @flyer.upload_flyer(params['flyer'])
-          @flyer.save!
+      def create
+	       @method = 'Create'
+        @event = Event.new
+        @flyer = Flyer.new
+        if request.post?
+          if params['flyer']
+            @flyer.upload_flyer(params['flyer'])
+            @flyer.save!
+          end
+          @event = Event.new(params['event'])
+          @event.event_notes1_styles = params['event_styles1'].join(',') unless params['event_styles1'].blank?
+          @event.event_notes2_styles = params['event_styles2'].join(',') unless params['event_styles2'].blank?
+          @event.event_notes3_styles = params['event_styles3'].join(',') unless params['event_styles3'].blank?
+          @event.save!
+  
+          flash[:notice] = "Event Saved"
+          redirect_to :action => 'index'
         end
-
-        @event.event_name = params['event_name']
-        @event.event_address = params['event_address']
-        @event.venue = params['venue']
-        @event.flyer_id = @flyer.id if params['flyer']
-        @event.event_start_date = params['event_start_date']
-        @event.event_start_time = params['event_start_time']
-        @event.event_notes1_label = params['event_notes1_label']
-        @event.event_notes1 = params['event_notes1']
-        @event.event_notes2_label = params['event_notes2_label']
-        @event.event_notes2 = params['event_notes2']
-        @event.event_notes3_label = params['event_notes3_label']
-        @event.event_notes3 = params['event_notes3']
-        @event.save!
-
-        flash[:notice] = "Event Saved"
-        redirect_to :action => 'index'
-      end
 
     end
 
@@ -49,20 +41,13 @@ module Admin
         if @event.flyer.blank?
           @flyer.upload_flyer(params['flyer'])
           @flyer.save
-         end
+        end
 
-        @event.event_name = params['event_name']
-        @event.event_address = params['event_address']
-        @event.venue = params['venue']
-        @event.flyer_id = @flyer.id if @event.flyer.blank?
-        @event.event_start_date = params['event_start_date']
-        @event.event_start_time = params['event_start_time']
-        @event.event_notes1_label = params['event_notes1_label']
-        @event.event_notes1 = params['event_notes1']
-        @event.event_notes2_label = params['event_notes2_label']
-        @event.event_notes2 = params['event_notes2']
-        @event.event_notes3_label = params['event_notes3_label']
-        @event.event_notes3 = params['event_notes3']
+        @event.update_attributes(params['event'])
+        @event.flyer_id = @flyer.id
+        @event.event_notes1_styles = params['event_styles1'].join(',') unless params['event_styles1'].blank?
+        @event.event_notes2_styles = params['event_styles2'].join(',') unless params['event_styles2'].blank?
+        @event.event_notes3_styles = params['event_styles3'].join(',') unless params['event_styles3'].blank?
         @event.save!
         
         flash[:notice] = "Event Updated"

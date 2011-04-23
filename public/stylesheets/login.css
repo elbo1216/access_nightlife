@@ -1,0 +1,67 @@
+.clear {
+	clear:both;
+}
+
+body {
+	padding:0;
+	background-color: #FFFFFF;
+	margin:0 auto;
+	text-align: center;
+}
+
+#admin_frame_top {
+	background-image:url('/images/admin_bg_top.png');
+	background-repeat:no-repeat;
+	width:1050;
+	height:10px;
+ margin:auto;
+}
+
+#admin_frame_middle {
+	width:1050;
+ margin:auto;
+}
+
+#admin_frame_bottom {
+	background-image:url('/images/admin_bg_bottom.png');
+	background-repeat:no-repeat;
+	width:1050;
+	height:10px;
+ margin:auto;
+}
+
+#left_container {
+  float:left;
+  margin:15px 0px 0px 150px;
+}
+
+#login_container {
+  margin:200px auto;
+  text-align:center;
+  padding 10px 10px;
+}
+
+#login_container table {
+  margin:auto;
+}
+
+#login_container table tr {
+  height:30px;
+}
+
+#logo_div {
+	float:left;
+}
+
+#right_container {
+ float:left;
+ margin:25px 0px 0px 50px;
+}
+
+#title_div {
+	float:left;
+	font-family:'neuropol';
+	font-size:35px;
+	margin:30px 0px 0px 20px;
+}
+
