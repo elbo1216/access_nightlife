@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
  def authorize_root
    if current_user.is_admin_user
      ug = UserGroup.find(:all, :conditions => "user_id = #{current_user.id} and group_id = 1")
-     redirect_to '/access_denied'
+     redirect_to '/access_denied' if ug.blank?
    end
  end
 

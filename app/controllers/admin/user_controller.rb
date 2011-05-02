@@ -16,6 +16,7 @@ module Admin
     def create
       @user = User.new
       @groups = Group.all
+      @gm=[]
       if request.post?
         @user = User.create!(params['user'])
         if params['groups']

@@ -56,8 +56,8 @@ function closeImage() {
             <td><%= g.is_current_slideshow ? "<a href='removeFromSlideshow(#{g.id})'>Remove from Sideshow</a>" : "<a href='javascript:addToSlideshow(#{g.id})'>Add To Slideshow</a>" %></td>
             <td><a href="javascript:deleteGallery(<%= g.id -%>)">Delete</a></td>
             <td><%= link_to "Edit", :action => "edit", :id => g.id -%></td>
-            <td><%= link_to "Add Images", :action => "add_images", :id => g.id -%></td>
           <% end -%>
+            <td><%= link_to "Add Images", :action => "add_images", :id => g.id -%></td>
         </tr>
       <% end -%>
     </table>

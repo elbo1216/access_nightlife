@@ -13,19 +13,12 @@ class User < ActiveRecord::Base
     User.find(:first, :conditions => "is_admin_user = 1 and email = '#{login}'")
   end
 
-  def valid_password?(pass)
-    pass == decrypt(self.crypted_password)
-  end
-
   def is_root?
     root = Group.find(:first, :conditions => "group_key = 'root'")
     self.user_groups.select {|ug| ug.group_id}.include?(root.id)
   end
 
-  private
-
-  def decrypt(encrypted_password)
-    encrypted_password
+  def verify_password?(params)
+    valid_password?(params).inspect
   end
-
 end
