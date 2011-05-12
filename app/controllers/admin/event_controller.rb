@@ -1,7 +1,7 @@
 module Admin
   class EventController < AdminController
 	   layout "admin_layout"
-    before_filter :authorize_root
+    before_filter :authorize_promoter
 
 	     def index
            @upcoming_asian_events = UpcomingEvent.find_by_sql("select * from upcoming_events ue where event_type = 'a' order by event_order") 
@@ -62,7 +62,7 @@ module Admin
       @event = Event.find(params[:id])
       @event.destroy
       flash[:notice] = "Event deleted"
-      render :index
+      redirect_to :action => 'index'
     end
 
     def change_upcoming_event

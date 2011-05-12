@@ -15,10 +15,14 @@ class User < ActiveRecord::Base
 
   def is_root?
     root = Group.find(:first, :conditions => "group_key = 'root'")
-    self.user_groups.select {|ug| ug.group_id}.include?(root.id)
+    self.user_groups.map {|ug| ug.group_id}.include?(root.id)
   end
 
   def verify_password?(params)
     valid_password?(params).inspect
+  end
+
+  def photographer_only?
+    !self.user_groups.blank? && self.user_groups.size == 1 && self.user_groups.first.group.group_key == 'photographer'
   end
 end

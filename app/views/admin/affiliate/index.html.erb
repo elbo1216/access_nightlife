@@ -1,0 +1,39 @@
+<% @title='Affiliate Page' %>
+
+<div id='main_affiliate_div'>
+  <h1>Affiliates List</h1>
+  <div id='affiliate_form'>
+    <% form_tag '/admin/affiliate/create', :multipart => true do %>
+      Affiliate Name: <%= text_field_tag 'name' %>
+      &nbsp;&nbsp;
+      Image file: <%= file_field 'affiliate','image' %>
+      <%= submit_tag "Add Affiliate" %>
+    <% end -%>
+  </div>
+  <br />
+  <div id='affiliate_list_div'>
+    <table id='affiliate_table'>
+      <tr>
+        <th>id</th>
+        <th>Affiliate Name</th>
+        <th>File Name</th>
+        <th>Is Active?</th>
+        <th>Set Active</th>
+        <th>Set Inactive</th>
+        <th>Delete</th>
+      </tr>
+      <% @affiliates.each do |a|%>
+        <tr>
+          <td><%= a.id %></td>
+          <td><%= a.affiliate_name%></td>
+          <td><%= a.img_filename %></td>
+          <td><%= a.is_active ? 'Yes' : 'No' %></td>
+          <td><%= link_to 'Set Active', :action => 'set_active', :id => a.id %></td>
+          <td><%= link_to 'Set Inactive', :action => 'set_inactive', :id => a.id %></td>
+          <td><%= link_to 'delete', :action => 'delete', :id => a.id %></td>
+        </tr>
+      <% end -%>
+
+    </table>
+  </div>
+</div>

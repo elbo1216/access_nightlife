@@ -2,19 +2,18 @@
 
 #create_event_container {
 	margin:20px 0px 0px 0px;
-	height:100%;
 	width:100%;
 }
 
 #form_container {
 	float:left;
-	width:40%;
 }
 
 #preview_container {
 	float:left;
-	width:60%;
 	color:white;
+ margin:0px 0px 0px 250px;
+ 
 }
 
 #preview_label {
@@ -28,11 +27,12 @@
 	color:white;
 }
 
-#form_table {
+.form_table {
 	border:0px;
+ width:340px;
 }
 
-#form_table td {
+.form_table td {
 	border:0px;
 }
 
@@ -42,4 +42,28 @@
 
 .info_table td {
 	border:0px;
+}
+
+#left_div {
+  float:left;
+}
+
+#mid_div {
+  float:left;
+}
+
+#right_div {
+  float:left;
+}
+
+#submit_div {
+  margin:20px 0px 0px 50px;
+}
+
+.size_input_tag {
+  width:25px;
+}
+
+.events_input_tag {
+  width:170px;
 }

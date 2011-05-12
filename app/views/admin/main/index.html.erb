@@ -1,0 +1,109 @@
+<% @title='Main Page' %>
+
+<div id='social_accounts_div'>
+  <h1>Social Media Account Links</h1>
+  <div id='input_media_form'>
+    <% form_tag '/admin/main/index' do %>
+      Media Name: <%= text_field_tag 'media_name' %>
+      &nbsp;&nbsp;
+      Media URL: <%= text_field_tag 'add_media_url' %>
+      &nbsp;
+      <%= submit_tag 'Add Social Media' %>
+    <% end -%>
+  </div>
+  <div id='social_media_account_list_div'>
+    <table id='social_media_account_table'>
+      <tr>
+        <th>ID</th>
+        <th>Social Media Name</th>
+        <th>Social Media URL</th>
+        <th>Edit/Save</th>
+        <th>Delete</th>
+      </tr>
+      <% @medias.each do |m| -%>
+        <tr>
+          <td><%= m.id %></td>
+          <td><%= m.media_name %></td>
+          <td>
+            <span id='url_value' ><%= m.media_url %></span>
+            <span id='edit_url'><%= text_field_tag 'edit_media_url', m.media_url %></span>
+          </td>
+          <td>
+            <a id='edit_link' href='javascript:editURL()'>Edit</a>
+            <a id='save_link' href='javascript:editMediaAccountLink(<%= m.id %>)'>Save</a>
+          </td>
+          <td><%= link_to 'delete', :action => 'delete_social_media', :id => m.id %></td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>
+<br />
+
+<div id='music_info_div'>
+  <h1>Music File Upload</h1>
+  <div id='add_song_form'>
+    <% form_tag "/admin/main/upload_music", :multipart => true do  %>
+      Add a music file: <%= file_field 'music','file' %>
+      <%= submit_tag "Add Music" %>
+    <% end -%>
+  </div>
+  <br/>
+  <div id='music_list_div'>
+    <table id='music_list_table'>
+      <tr>
+        <th>id</th>
+        <th>File Name</th>
+        <th>Is Active?</th>
+        <th>Set Active</th>
+        <th>Delete</th>
+      </tr>
+      <% @music_list.each do |ml|%>
+        <tr>
+          <td><%= ml.id %></td>
+          <td><%= ml.filename %></td>
+          <td><%= ml.is_active ? 'Yes' : 'No' %></td>
+          <td><%= link_to 'Set Active', :action => 'set_music_file_active', :id => ml.id %></td>
+          <td><%= link_to 'delete', :action => 'delete_music_file', :id => ml.id %></td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>
+<script>
+jQuery.noConflict();
+function deleteMediaAccountLink(id) {
+  jQuery.ajax({
+                url: '/admin/main/delete/' + id,
+              })
+}
+
+function editMediaAccountLink(id) {
+  jQuery.ajax({
+                url: '/admin/main/edit_url/' + id,
+                type: 'POST',
+                data: 'url='+jQuery('#edit_media_url').val(),
+                success: function(msg) {
+                  jQuery('#url_value').html(msg);
+                  showURL();
+                }
+              });
+}
+
+function editURL() {
+  jQuery('#edit_url').show();
+  jQuery('#url_value').hide();
+  jQuery('#save_link').show();
+  jQuery('#edit_link').hide();
+}
+
+function showURL() {
+  jQuery('#edit_url').hide();
+  jQuery('#url_value').show();
+  jQuery('#save_link').hide();
+  jQuery('#edit_link').show();
+}
+
+//JAVASCRIPTS TO PERFORM
+showURL();
+</script>

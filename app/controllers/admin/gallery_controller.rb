@@ -1,7 +1,7 @@
 module Admin
   class GalleryController < AdminController
     layout "admin_layout"
-    before_filter :authorize_root, :except => [:index, :create, :add_images, :edit_comment, :delete_image]
+    before_filter :authorize_admin, :except => [:index, :create, :add_images, :edit_comment, :delete_image]
 
     def index
       sql = "select gm.* from galleries g left join gallery_images gm on g.id = gm.gallery_id where is_current_slideshow  = 1"

@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+ # protect_from_forgery # See ActionController::RequestForgeryProtection for details
   filter_parameter_logging :password
 
   helper_method :current_user
@@ -28,15 +28,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize_promoter
+   if current_user.is_admin_user && !current_user.is_root?
+     ug = UserGroup.find(:all, :joins => 'join groups on groups.id=user_groups.group_id', :conditions => "user_id = #{current_user.id} and group_key = 'promoter'")
+     redirect_to '/access_denied' if ug.blank?
+   end
+  end
+
   def authorize_admin
     redirect_to '/access_denied' unless current_user.is_admin_user
   end
 
  def authorize_root
-   if current_user.is_admin_user
-     ug = UserGroup.find(:all, :conditions => "user_id = #{current_user.id} and group_id = 1")
-     redirect_to '/access_denied' if ug.blank?
-   end
+   current_user.is_root?
  end
 
   def user_groups
