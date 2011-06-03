@@ -9,5 +9,6 @@ class CreateNewsletterRequests < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :newsletter_requests
   end
 end

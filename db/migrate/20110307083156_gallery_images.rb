@@ -14,5 +14,6 @@ class GalleryImages < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :gallery_images
   end
 end

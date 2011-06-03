@@ -11,5 +11,6 @@ class CreateFlyers < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :flyers
   end
 end
