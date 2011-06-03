@@ -1,7 +1,5 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
-    sql = 'drop table events'
-    execute sql
     sql = "create table events(
            id        			        integer not null auto_increment primary key,
 		         flyer_id				         integer,
