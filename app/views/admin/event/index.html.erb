@@ -105,7 +105,7 @@
           <td>
             <div class='cd_links' id='cd_links_<%= @upcoming_mixed_events[i].id -%>'>
               <a href='javascript:changeUpcomingEvent(<%= @upcoming_mixed_events[i].id-%>)'>Change</a>
-              <a href='javascript:changeEvent(<%= @upcoming_mixed_events[i].id-%>)'>Delete</a>
+              <a href='javascript:removeEvent(<%= @upcoming_mixed_events[i].id-%>)'>Delete</a>
             </div>
             <div class='sc_links' id='sc_links_<%= @upcoming_mixed_events[i].id -%>'>
               <a href='javascript:saveUpcomingEventChange(<%= @upcoming_mixed_events[i].id-%>)'>Save</a>
@@ -144,7 +144,7 @@
         <%= "<td style='text-align:center;'>#{e.id}</td>" %>
         <%= "<td>#{e.event_name}</td>" %>
         <%= "<td>#{e.event_start_date}</td>" %>
-        <%= "<td>#{e.event_start_time.strftime('%H:%M') if e.event_start_time}</td>" %>
+        <%= "<td>#{e.event_start_time.strftime('%i:%M %p') if e.event_start_time}</td>" %>
         <%= "<td>#{e.venue}</td>" %>
         <%= "<td>#{e.event_notes1}</td>" %>
         <%= "<td>#{e.event_notes2}</td>" %>

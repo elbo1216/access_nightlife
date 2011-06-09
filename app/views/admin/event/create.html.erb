@@ -21,7 +21,8 @@
         </tr>
         <tr>
           <td>Start Time:</td>
-          <td><%= text_field_tag 'event[event_start_time]',  @event.event_start_time%></td>
+          <% starttime = @event.event_start_time.strftime('%i:%M %p') if @event.event_start_time %>
+          <td><%= text_field_tag 'event[event_start_time]', starttime %></td>
         </tr>
         <tr>
           <td>Flyer:</td>

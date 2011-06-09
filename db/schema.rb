@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418040002) do
+ActiveRecord::Schema.define(:version => 20110512030754) do
+
+  create_table "affiliates", :force => true do |t|
+    t.string    "affiliate_name"
+    t.string    "img_filename",   :limit => 100
+    t.string    "img_file_path"
+    t.boolean   "is_active",                     :default => false
+    t.timestamp "created_at",                                       :null => false
+    t.timestamp "updated_at",                                       :null => false
+  end
 
   create_table "event_requests", :force => true do |t|
     t.integer   "user_id"
@@ -72,10 +81,25 @@ ActiveRecord::Schema.define(:version => 20110418040002) do
     t.timestamp "updated_at",                :null => false
   end
 
+  create_table "music_files", :force => true do |t|
+    t.string    "filename",   :limit => 100
+    t.string    "file_path"
+    t.boolean   "is_active",                 :default => false
+    t.timestamp "created_at",                                   :null => false
+    t.timestamp "updated_at",                                   :null => false
+  end
+
   create_table "newsletter_requests", :force => true do |t|
     t.integer   "user_id"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
+  end
+
+  create_table "social_media_accounts", :force => true do |t|
+    t.string    "media_name"
+    t.string    "media_url",  :limit => 2000
+    t.timestamp "created_at",                 :null => false
+    t.timestamp "updated_at",                 :null => false
   end
 
   create_table "upcoming_events", :force => true do |t|
