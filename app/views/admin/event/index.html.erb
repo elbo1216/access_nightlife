@@ -144,7 +144,7 @@
         <%= "<td style='text-align:center;'>#{e.id}</td>" %>
         <%= "<td>#{e.event_name}</td>" %>
         <%= "<td>#{e.event_start_date}</td>" %>
-        <%= "<td>#{e.event_start_time.strftime('%i:%M %p') if e.event_start_time}</td>" %>
+        <%= "<td>#{e.event_start_time.strftime('%l:%M %p') if e.event_start_time}</td>" %>
         <%= "<td>#{e.venue}</td>" %>
         <%= "<td>#{e.event_notes1}</td>" %>
         <%= "<td>#{e.event_notes2}</td>" %>
