@@ -1,2 +1,4 @@
 /public/images/flyer/*
 /public/images/gallery/*
+.swp
+.DS_Store
