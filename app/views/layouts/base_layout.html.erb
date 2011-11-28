@@ -1,65 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC '_//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1_transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http_equiv='Content_Type' content='text/html; charset=utf_8' />
   <title>Access NightLife: Innovative NightLife</title>
-      <link rel="icon"
-        type="image/png" 
-        href="http://www.mindgear.us/images/favicon.png">
-  
-    <%= stylesheet_link_tag "headerbuttons" %>
-    <%= stylesheet_link_tag "style" %>
-    <%= stylesheet_link_tag "navigation" %>
-    <%= stylesheet_link_tag "newsletter" %>
-    <%= stylesheet_link_tag "schedule_event" %>
-    <%= stylesheet_link_tag "upcoming_event_container" %>
-    <%= stylesheet_link_tag "event_main" %>
-    <%= stylesheet_link_tag "thumbnail_container" %>
-    <%= stylesheet_link_tag "sponsors_affiliates_container" %>
+    <%= stylesheet_link_tag 'base' %>
+    <%= stylesheet_link_tag 'events' %>
+    <%= stylesheet_link_tag 'newsletter' %>
+    <%= stylesheet_link_tag 'event_main' %>
+    <%= stylesheet_link_tag 'thumbnail_container' %>
+    <%= stylesheet_link_tag 'sponsors_affiliates_container' %>
+    <%= stylesheet_link_tag 'contact' %>
+    <%= stylesheet_link_tag 'about' %>
+    <%= stylesheet_link_tag 'plan_event' %>
+    <%= stylesheet_link_tag 'media' %>
     <%= javascript_include_tag 'prototype' %>
     <%= javascript_include_tag 'jquery-1.4.4' %>
-    <%= javascript_include_tag 'animatedcollapse' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'effects' %>
     <%= javascript_include_tag 'controls' %>
     <%= javascript_include_tag 'dragdrop' %>
     <%= javascript_include_tag 'fadeslideshow' %>
   </head>
-  <body class="oneColFixCtr">
-	<div id=overlay>
-	  <div id='popup'>
-		<div>
-		  <span>Thank you for scheduling your event with us.  You should be hearing from us shortly</span>
-		  <br/><br/><br/>
-		  <a href="javascript:document.getElementById('overlay').style.display = 'none'">close</a>
-	    </div>
-	  </div>
-	</div>
-    <div id="container">
-      <div id="banner"><img src="images/accesssilver.jpg" /></div>
-      <div id='nav'>
-        <div id='home_button_container'>
-          <div><a href='/index'>Home</a></div>
-    	</div>
-        <div id='gallery_button_container'>
-          <div><a href='/index'>Gallery</a></div>
+  <body>
+    <div id='feature_panel'></div>
+    <div id='banner' class='banner_class'></div>
+    <div id='content' class='main_content'>
+      <div id='top_nav' class ='top_nav'>
+        <div id='top_nav_left' class='top_nav_left'></div>
+        <div id='top_nav_mid' class='top_nav_mid'>
+          <ul>
+            <li id='home_link'><a href='/'></a></li>
+            <li id='top_nav_divider_home'>&nbsp;</li>
+            <li id='media_link'><a href='/media'></a></li>
+            <li id='top_nav_divider_media'>&nbsp;</li>
+            <li id='event_link'><a href='/plan_event'></a></li>
+            <li id='top_nav_divider_event'>&nbsp;</li>
+            <li id='about_link'><a href='/about'></a></li>
+            <li id='top_nav_divider_about'>&nbsp;</li>
+            <li id='contact_link'><a href='/contact'></a></li>
+            <li id='top_nav_divider_contact'>&nbsp;</li>
+            <li id='follow_us'>&nbsp;</li>
+            <li id='twitter_link'><a href='https://www.twitter.com/accessnightlife' title='Twitter' ></a></li>
+            <li id='facebook_link'><a href='https://www.facebook.com/accessnightlife' title='Facebook' ></a></li>
+            <li id='youtube_link'><a href='http://www.youtube.com/watch?v=NY4miE4mx2U' title='YouTube' ></a></li>
+          </ul>
         </div>
-        <div id='contact_button_container'>
-          <div><a href='/index'>Contact Us</a></div>
-        </div>
-        <div id='twitter_container'>
-          <div><a href="https://www.twitter.com/accessnightlife"><img src='../images/twitter.png' /></a></div>
-        </div>
-        <div id='youtube_container'>
-          <div><a href="http://www.youtube.com/watch?v=NY4miE4mx2U"><img src='../images/youtube.png' /></a></div>
-        </div>
-        <div id='facebook_container'>
-          <div><a href="https://www.facebook.com/accessnightlife"><img src='../images/facebook.png' /></a></div>
-        </div>
+        <div id='top_nav_right' class='top_nav_right'></div>
       </div>
-	  <%= yield %>
+      <div class='clear' ></div>
+	   <%= yield %>
     </div>
-    <div id="footer"><img src="images/privacybanner.jpg"/></div>
+    <div id='footer'>
+      <div id='footer_left_div'>PRIVACY POLICY</div>
+      <div id='footer_right_div'>COPYRIGHT <%= Time.now.strftime('%Y') %> the Blaq List LLC All Rights Reserved</div>
+    </div>
     <div class='clear' ></div>
   </body>
-</html>

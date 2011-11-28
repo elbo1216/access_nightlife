@@ -29,9 +29,17 @@ module Admin
           flash[:notice] = "A gallery needs an event.  Please enter an event id or choose an event from the drop down menu"
           return
         end
+        logo = GalleryLogo.new
+        logo.upload_image(params[:gallery_logo_image])
+        logo.save!
+        logo.reload
+
         @gallery.name = params[:gallery_name]
         @gallery.is_current_slideshow = params[:is_current_slideshow]
         @gallery.gallery_path = "#{RAILS_ROOT}/public/images/gallery"
+        @gallery.gallery_logo_id = logo.id
+        @gallery.description_short = params[:description_short]
+        @gallery.description_long = params[:description_long]
         @gallery.save!
         redirect_to :action => 'index'
       end
@@ -56,17 +64,51 @@ module Admin
           flash[:notice] = "A gallery needs an event.  Please enter an event id or choose an event from the drop down menu"
           return
         end
+
+        unless params[:gallery_logo_image].blank?
+          logo = GalleryLogo.new
+          logo.upload_image(params[:gallery_logo_image])
+          logo.save!
+          logo.reload
+          @gallery.gallery_logo_id = logo.id
+        end
+
         @gallery.name = params[:gallery_name]
         @gallery.is_current_slideshow = params[:is_current_slideshow]
+        @gallery.description_short = params[:description_short]
+        @gallery.description_long = params[:description_long]
         @gallery.gallery_path = "#{RAILS_ROOT}/public/images/gallery"
         @gallery.save!
       end
     end
 
+    def make_live
+      Gallery.find(params[:id]).make_live
+      redirect_to :action => 'index'
+    end
+
+    def make_feature
+      Gallery.find_by_sql("select * from galleries where is_feature_gallery is true").each do |g|
+        g.is_feature_gallery = false
+        g.save!
+      end
+      Gallery.find(params[:id]).make_feature
+      redirect_to :action => 'index'
+    end
+
+    def remove_live
+      Gallery.find(params[:id]).remove_live
+      redirect_to :action => 'index'
+    end
+
+    def remove_feature
+      Gallery.find(params[:id]).remove_feature
+      redirect_to :action => 'index'
+    end
+
     def edit_comment
       gi = GalleryImage.find(params[:id])
-      gi.image_comments = params[:comment]
-      gi.save!
+      gi.edit_comments(params[:comment])
       gi.reload
       render :text => gi.image_comments
     end
@@ -130,6 +172,18 @@ module Admin
       gi.is_slideshow_image = 0
       gi.save!
       render :nothing => true
+    end
+
+    def set_as_main_image
+      gi = GalleryImage.find(params[:id])
+      old_gi = GalleryImage.find_by_sql("select * from gallery_images where gallery_id = #{gi.id} and is_media_image is true")
+      old_gi.each do |og|
+        og.is_media_image = 0
+        og.save!
+      end
+      gi.is_media_image = 1
+      gi.save!
+      redirect_to :action => 'index'
     end
   end
 end

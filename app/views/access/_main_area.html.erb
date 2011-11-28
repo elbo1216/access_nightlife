@@ -1,61 +1,54 @@
-<% @upcoming_events.each do |ue| -%>
+<% @events.each do |ue| -%>
   <% next if ue.event.blank? %>
-  <%= "<div 'main_event_container_div' id='main_event_container_#{@upcoming_events.index(ue)}' style='display:#{@upcoming_events.index(ue) == 0 ? 'block' : 'none'}'>" %> 
-    <%= "<div class='flyer_div' id='flyer_#{@upcoming_events.index(ue)}'>" %>
-      <%= "<img src='#{ue.event.flyer.file_path}#{ue.event.flyer.filename}' />" %> 
-    <%= "</div>" %>    
-    <%= "<div class='main_event_info' id='event_info_#{@upcoming_events.index(ue)}' >" %>
-	    <img src='../images/event_main_title.jpg' />
-        <div class='info_container'>
-          <table class='info_table'>
-          <tr>
-            <td>
-               <%= ue.event.event_start_time.strftime('%A, %B %d, %Y')%>
-               <br/>
-               <%= "Starting: #{ue.event.event_start_time.strftime('%H')} " %>
-             </td>
-          </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-          <tr>
-            <td>
-              <%= ue.event.venue %>
-              <br/>
-              <%= ue.event.event_address %>
-            </td>
-          </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-          <tr>
-            <td>
-    <span style="<%= ue.event.translate_to_css(1)%>">
-				  <%= "#{ue.event.event_notes1_label} <br/>" if ue.event.event_notes1_label %>
-				  <%= ue.event.event_notes1 %>
-    </span>
-			</td>
-          </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-          <tr>
-            <td>
-    <span style="<%= ue.event.translate_to_css(2)%>">
-				  <%= "#{ue.event.event_notes2_label} <br/>" if ue.event.event_notes2_label %>
-				  <%= ue.event.event_notes2 %>
-    </span>
-			</td>
-          </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-          <tr>
-            <td>
-    <span style="<%= ue.event.translate_to_css(3)%>">
-				  <%= "#{ue.event.event_notes3_label} <br/>" if ue.event.event_notes3_label %>
-				  <%= ue.event.event_notes3 %>
-    </span>
-			</td>
-          </tr>
-          </table>
-        </div>
-    <%= "</div>" %>
-    <div class='clear'></div>
-  
-    <%= "<div class='main_sponsor_info' id='sponsor_info_#{@upcoming_events.index(ue)}'>" %>
-    <%= "</div>" %>
+  <%= "<div 'main_event_container_div' id='main_event_container_#{@events.index(ue)}' style='display:#{@events.index(ue) == 0 ? 'block' : 'none'}'>" %> 
+  <%= "<div class='flyer_div' id='flyer_#{@events.index(ue)}'>" %>
+    <%= "<img src='#{ue.event.flyer.file_path}#{ue.event.flyer.filename}' />" %> 
+  <%= "</div>" %>    
+  <%= "<div class='main_event_info' id='event_info_#{@events.index(ue)}' >" %>
+  <div class='info_container'>
+    <table class='info_table'>
+      <tr>
+        <td>
+          <span style="<%= ue.event.translate_to_css('name', nil)%>">
+            <%= ue.event.event_name %>
+          </span>
+          <br />
+          <span style="<%= ue.event.translate_to_css('start_date', nil)%>">
+          <%= ue.event.event_start_date.strftime('%B %d, %Y')%>
+          </span>
+          <br/>
+          <span style="<%= ue.event.translate_to_css('start_time', nil)%>">
+          <%= "Starting: #{ue.event.event_start_time.strftime('%I%P')} " %>
+          </span>
+        </td>
+        <td>
+          <span style="<%= ue.event.translate_to_css('notes', 1)%>">
+				            <%= "#{ue.event.event_notes1_label} <br/>" if ue.event.event_notes1_label %>
+				            <%= ue.event.event_notes1 %>
+          </span>
+			     </td>
+      </tr>
+		    <tr><td class='info_table_spacer'></td></tr>
+      <tr>
+        <td>
+          <span style="<%= ue.event.translate_to_css('venue', nil)%>">
+          <%= ue.event.event_venue %>
+          </span>
+          <br/>
+          <span style="<%= ue.event.translate_to_css('address', nil)%>">
+          <%= ue.event.event_address %>
+          </span>
+        </td>
+        <td>
+          <span style="<%= ue.event.translate_to_css('notes', 2)%>">
+				            <%= "#{ue.event.event_notes2_label} <br/>" if ue.event.event_notes2_label %>
+				            <%= ue.event.event_notes2 %>
+          </span>
+			     </td>
+      </tr>
+    </table>
+  </div>
+  <%= "</div>" %>
+  <div class='clear'></div>
   <%= "</div>" %>
 <% end -%>

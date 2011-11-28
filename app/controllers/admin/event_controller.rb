@@ -4,9 +4,9 @@ module Admin
     before_filter :authorize_promoter
 
 	     def index
-           @upcoming_asian_events = UpcomingEvent.find_by_sql("select * from upcoming_events ue where event_type = 'a' order by event_order") 
-           @upcoming_mixed_events = UpcomingEvent.find_by_sql("select * from upcoming_events where event_type = 'm' order by event_order") 
-           if @upcoming_asian_events.size < UpcomingEvent::MAX_EVENTS || @upcoming_mixed_events.size < UpcomingEvent::MAX_EVENTS
+           @featured_event = UpcomingEvent.find_by_sql("select * from upcoming_events ue where event_type = 'f' order by event_order").first
+           @upcoming_events = UpcomingEvent.find_by_sql("select * from upcoming_events where event_type = 'u' order by event_order") 
+           if @upcoming_events.size < UpcomingEvent::MAX_EVENTS
              UpcomingEvent.synchronize_upcoming_events
            end
            @events = Event.find_by_sql("select * from events e order by e.id desc limit 20")
@@ -22,9 +22,15 @@ module Admin
             @flyer.save!
           end
           @event = Event.new(params['event'])
+          @event.flyer_id = @flyer.id
           @event.event_notes1_styles = params['event_styles1'].join(',') unless params['event_styles1'].blank?
           @event.event_notes2_styles = params['event_styles2'].join(',') unless params['event_styles2'].blank?
           @event.event_notes3_styles = params['event_styles3'].join(',') unless params['event_styles3'].blank?
+          @event.event_name_styles = params['event_styles_name'].join(',') unless params['event_styles_name'].blank?
+          @event.event_venue_styles = params['event_styles_venue'].join(',') unless params['event_styles_venue'].blank?
+          @event.event_address_styles = params['event_styles_address'].join(',') unless params['event_styles_address'].blank?
+          @event.event_start_date_styles = params['event_styles_date'].join(',') unless params['event_styles_date'].blank?
+          @event.event_start_time_styles = params['event_styles_time'].join(',') unless params['event_styles_time'].blank?
           @event.save!
   
           flash[:notice] = "Event Saved"
@@ -45,10 +51,15 @@ module Admin
 
         @event.update_attributes(params['event'])
         @event.flyer_id = @flyer.id
-        @event.event_notes1_styles = params['event_styles1'].join(',') unless params['event_styles1'].blank?
-        @event.event_notes2_styles = params['event_styles2'].join(',') unless params['event_styles2'].blank?
-        @event.event_notes3_styles = params['event_styles3'].join(',') unless params['event_styles3'].blank?
-        @event.save!
+          @event.event_notes1_styles = params['event_styles1'].join(',') unless params['event_styles1'].blank?
+          @event.event_notes2_styles = params['event_styles2'].join(',') unless params['event_styles2'].blank?
+          @event.event_notes3_styles = params['event_styles3'].join(',') unless params['event_styles3'].blank?
+          @event.event_name_styles = params['event_styles_name'].join(',') unless params['event_styles_name'].blank?
+          @event.event_venue_styles = params['event_styles_venue'].join(',') unless params['event_styles_venue'].blank?
+          @event.event_address_styles = params['event_styles_address'].join(',') unless params['event_styles_address'].blank?
+          @event.event_start_date_styles = params['event_styles_date'].join(',') unless params['event_styles_date'].blank?
+          @event.event_start_time_styles = params['event_styles_time'].join(',') unless params['event_styles_time'].blank?
+          @event.save!
         
         flash[:notice] = "Event Updated"
         redirect_to :action => 'index'

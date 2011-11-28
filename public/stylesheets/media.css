@@ -1,0 +1,97 @@
+#feature_media_container {
+  background-image: url('/images/media_bg.jpg');
+  width: 1100px;
+  height: 257px;
+  padding: 15px 0px 0px 0px;
+}
+
+#feature_media_container span {
+  font-weight: bold;
+  font-family: 'arial';
+  font-size: 22px;
+  margin: 10px 30px;
+}
+
+#feature_media_img {
+  float:right;
+}
+
+#feature_media_text {
+  background: url('/images/featured_media_frame.jpg');
+  width: 321px;
+  height: 273px;
+  float: right;
+  margin-right: 80px;
+}
+
+#feature_media_text img {
+  margin:5px 0px 0px 10px;
+}
+
+#feature_media_text .title {
+  position: absolute;
+  font-size: 21px;
+  font-family: 'gothic';
+  letter-spacing: 1px;
+}
+
+#feature_media_text .text {
+  font-size: 10px;
+  font-family: 'gothic';
+  padding: 15px 5px;
+}
+
+#feature {
+  color: #62c0fb;
+  top: 240px;
+  left: 965px;
+}
+
+#nightclub {
+  top: 257px;
+  left: 1015px;
+}
+
+#media_selector_container {
+  margin:30px auto;
+}
+
+.media_banner {
+  position:absolute;
+  background: url('/images/sprite.png') 0 -452px;
+  width: 228px;
+  height: 48px;
+}
+
+#left_selector {
+  background: url('/images/sprite.png') -280px -298px;
+  width: 60px;
+  height: 60px;
+  float:left;
+  margin: 80px 15px;
+}
+
+#right_selector {
+  background: url('/images/sprite.png') -351px -298px;
+  width: 60px;
+  height: 60px;
+  float:left;
+  margin: 80px 15px;
+}
+
+.media_content {
+  float:left;
+  text-align: center;
+}
+
+.media_content_text {
+  background: url('/images/sprite.png') -199px -391px;
+  width: 224px;
+  height: 58px;
+}
+
+.text {
+  padding: 5px;
+  text-align:left;
+  font-size: 9px;
+}

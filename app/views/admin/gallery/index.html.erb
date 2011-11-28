@@ -1,4 +1,3 @@
-<script type="text/javascript" src="/javascripts/jquery-1.4.4.js"></script>
 <script type="text/javascript">
 function deleteGallery(id) {
   var answer = confirm("Are you sure you want to remove this gallery?  Removing a gallery will remove all associated images in the gallery with it.");
@@ -20,15 +19,6 @@ function removeFromSlideshow(id) {
   $('#gallery_form').submit()
 
 }
-
-function viewImage(path) {
-  $('#image_display').attr('src', path);
-  $('#image_div').show();
-}
-
-function closeImage() {
-  $('#image_div').hide();
-}
 </script>
 
 <% @title='Gallery Page' %>
@@ -43,6 +33,8 @@ function closeImage() {
         <th>Event Name</th>
         <% if current_user.is_root? -%>
           <th>Current Slideshow?</th>
+          <th>Feature Gallery</th>
+          <th>Live</th>
           <th>Delete</th>
           <th>Edit</th>
         <% end -%>
@@ -54,6 +46,20 @@ function closeImage() {
           <td><%= g.event.event_name if g.event -%></td>
           <% if current_user.is_root? -%>
             <td><%= g.is_current_slideshow ? "<a href='removeFromSlideshow(#{g.id})'>Remove from Sideshow</a>" : "<a href='javascript:addToSlideshow(#{g.id})'>Add To Slideshow</a>" %></td>
+            <td>
+              <% if g.is_feature_gallery -%>
+                <%= link_to "Remove Feature", :action => "remove_feature", :id => g.id -%>
+              <% else -%>
+                <%= link_to "Feature", :action => "make_feature", :id => g.id -%>
+              <% end -%>
+            </td>
+            <td>
+              <% if g.is_live -%>
+                <%= link_to "Remove Live", :action => "remove_live", :id => g.id -%>
+              <% else -%>
+                <%= link_to "Live", :action => "make_live", :id => g.id -%>
+              <% end -%>
+            </td>
             <td><a href="javascript:deleteGallery(<%= g.id -%>)">Delete</a></td>
             <td><%= link_to "Edit", :action => "edit", :id => g.id -%></td>
           <% end -%>

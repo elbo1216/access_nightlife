@@ -1,0 +1,294 @@
+@font-face {
+	font-family: 'neuropol';
+	src: url('../fonts/neuropol.tff');
+}
+
+@font-face {
+	font-family: 'gothic';
+	src: url('../fonts/Gothic.TTF');
+}
+
+@font-face {
+	font-family: 'gothic-bold';
+	src: url('../fonts/gothicb.TTF');
+}
+
+.clear {
+	clear:both;
+}
+
+body {
+	background-color: #000000;
+	margin:0 auto;
+	text_align: center;
+ color:white;
+ font-family: 'gothic';
+}
+
+body a {
+  text-decoration:none;
+}
+
+body img {
+  border:0px;
+}
+
+.banner_class {
+  background-image: url('/images/frame-top-bg.jpg');
+  width:1100px;
+  height:119px;
+  margin:50px auto 0px;
+}
+
+.top_nav {
+  width:98%;
+  height:30px;
+  margin:-10px auto 0px;
+}
+
+.top_nav_left {
+  width: 3px;
+  height: 100%;
+  background: url('/images/sprite.png') 0 0;
+  float:left;
+}
+
+.top_nav_mid {
+  background: url('/images/top_nav_bg.jpg') repeat-x;
+  height:100%;
+  width:99%;
+  float:left;
+}
+
+.top_nav_mid ul {
+  position: relative;
+}
+
+.top_nav_mid li {
+  position: absolute;
+  list-style:none;
+  margin:-18px -10px;
+  padding 0px;
+}
+
+.top_nav_mid a {
+  height:30px;
+  width: 100%;
+  display:block;
+  float:left;
+}
+
+.link_divs {
+  position:relative;
+}
+
+#home_link {
+  background: url('/images/sprite.png') -10px -30px;
+  width: 50px;
+}
+
+#home_link a:hover {
+  background: url('/images/sprite.png') -10px -57px;
+  width: 50px;
+}
+
+#top_nav_divider_home {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 115px;
+  height: 32px;
+}
+
+#media_link {
+  background: url('/images/sprite.png') -70px -30px;
+  width: 60px;
+  left: 150px;
+}
+
+#media_link a:hover {
+  background: url('/images/sprite.png') -70px -56px;
+  width: 60px;
+  left: 150px;
+}
+
+#top_nav_divider_media {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 235px;
+  height: 32px;
+}
+
+#event_link {
+  background: url('/images/sprite.png') -130px -30px;
+  width: 120px;
+  left: 270px;
+}
+
+#event_link a:hover {
+  background: url('/images/sprite.png') -130px -56px;
+  width: 120px;
+  left: 270px;
+}
+
+#top_nav_divider_event {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 430px;
+  height: 32px;
+}
+
+#about_link {
+  background: url('/images/sprite.png') -250px -30px;
+  width: 120px;
+  left: 460px;
+}
+
+#about_link a:hover {
+  background: url('/images/sprite.png') -250px -55px;
+  width: 100px;
+  left: 460px;
+}
+
+#top_nav_divider_about {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 595px;
+  height: 32px;
+}
+
+#contact_link {
+  background: url('/images/sprite.png') -40px -96px;
+  width: 100px;
+  left: 630px;
+}
+
+#contact_link a:hover {
+  background: url('/images/sprite.png') -40px -121px;
+  width: 100px;
+  left: 630px;
+}
+
+#top_nav_divider_contact {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 755px;
+  height: 32px;
+}
+
+#follow_us {
+  background: url('/images/sprite.png') -190px -96px;
+  width: 110px;
+  left: 790px;
+  height: 30px;
+}
+
+#twitter_link {
+  background: url('/images/sprite.png') -30px 3px;
+  width: 30px;
+  left: 920px;
+  height: 32px;
+}
+
+#facebook_link {
+  background: url('/images/sprite.png') -60px 4px;
+  width: 25px;
+  left: 980px;
+  height: 32px;
+}
+
+#youtube_link {
+  background: url('/images/sprite.png') -90px 5px;
+  width: 25px;
+  left: 1045px;
+  height: 32px;
+}
+
+.top_nav_right {
+  background: url('/images/sprite.png') -7px 0px;
+  height:100%;
+  width: 3px;
+  float:left;
+}
+
+.nav_buttons {
+  float:left;
+}
+
+.main_content {
+  width:1100px;
+  margin:auto;
+}
+
+#events_container {
+  font-family: "arial"
+}
+
+#div-1 {
+  width:98%;
+  margin:auto;
+}
+
+#index_body_left {
+  width: 232px;
+  float:left;
+}
+
+#index_body_middle {
+  float:left;
+  width:609px;
+}
+
+#index_body_right {
+  width: 232px;
+  float:left;
+}
+
+.section_title {
+  color: white;
+  font-family: 'century gothic' sans-serif;
+  font-size: 12px;
+  background: url('/images/sprite.png') -5px -190px;
+  width: 229px;
+  height: 30px;
+  padding: 6px 0px 0px 8px;
+}
+
+#footer {
+	margin: 8px auto;
+ width:1100px;
+ font-size:10px;
+ color:white;
+ font-family: 'century gothic' sans-serif;
+}
+
+#footer_left_div {
+  float:left;
+}
+
+#footer_right_div {
+  float:right;
+}
+
+.long_input_text {
+  width:225px;
+}
+
+.short_input_text {
+  width:55px;
+}
+
+.large_submit_button {
+  background: url('/images/sprite.png') -146px -337px;
+  width: 120px;
+  height: 46px;
+}
+
+.request_confirm {
+  margin:50px;
+  height:400px;
+}
+
+#feature_panel {
+  background-color:white;
+  height: 40px;
+}

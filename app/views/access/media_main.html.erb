@@ -1,0 +1,40 @@
+<div id='media_main_container'>
+  <div id='feature_media_container'>
+    <span class='title'>IMAGE GALLERY</span>
+    <% if @feature_gallery -%>
+      <div id='feature_media_text'>
+        <img src='<%= @feature_gallery.gallery_logo.logo_path + "/" + @feature_gallery.gallery_logo.logo_file_name %>'/>
+        <span id='feature' class='title' >FEATURE</span>
+        <span id='nightclub' class='title'>NIGHTCLUB</span>
+        <div class='text'><%= @feature_gallery.description_long %></div>
+      </div>
+      <div id='feature_media_img'>
+        <img src='<%= @feature_gallery.get_media_image.image_path + "/" + @feature_gallery.get_media_image.image_filename %>'/>
+      </div>
+    <% end -%>
+  </div>
+  <div id='media_selector_container'>
+    <div id='left_selector'>
+    </div>
+    <div id='media_content_container'>
+      <% @galleries.each do |g| -%>
+        <div id='content_<%= g.id-%>' class='media_content'>
+          <div id='content_<%= g.id-%>_img'>
+            <% if g.gallery_logo -%>
+              <div id='media_banner_<%= g.id-%>' class='media_banner'>
+                <img src='<%= g.gallery_logo.logo_path + "/" + g.gallery_logo.logo_file_name %>'/>
+              </div>
+            <% end -%>
+            <img src='<%= g.get_media_image.image_path + "/" + g.get_media_image.image_filename %>'/>
+          </div>
+          <div id='content_1_text' class='media_content_text'>
+            <div class='text'><%= g.description_short %></div>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+    <div id='right_selector'>
+    </div>
+  </div>
+  <div class='clear'></div>
+</div>

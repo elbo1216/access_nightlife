@@ -1,25 +1,23 @@
-.main_event_container_div {
-}
-
 .flyer_div {
-	float:left;
+  background: url('/images/main_flyer_bg.jpg') repeat-x;
+  width: 609px;
+  height: 358px;
+  margin:auto;
+  text-align:center;
 }
 
 .flyer_div img {
-	width:286px;
-	height:364px;
+	 width: 602px;
+	 height:355px;
 }
 
 .main_event_info {
-	float:left;
-	background-image:url('/images/event_main_bg.jpg');
-	width:245px;
-	height:364px;
-}
-
-.main_sponsor_info {
-	background-color:#1f1f1f;
-	height:209px;
+  background: url('/images/main_info_bg.jpg') repeat-x;
+ 	width: 607px;
+ 	height:171px;
+  border-bottom: 1px solid #133847;
+  border-left: 1px solid #133847;
+  border-right: 1px solid #133847;
 }
 
 .info_container {
@@ -29,11 +27,92 @@
 	font-family:'arial';
 	font-weight:none;
 }
-.
-.info_table {
-		
+
+.info_container td {
+		width:280px;
 }
 
 .info_table_spacer {
 	height:25px;
 }
+
+.info_table td {
+  vertical-align: top;
+}
+
+#bottom_nav {
+  background: url('/images/bot_nav_bg.jpg') repeat-x;
+  width: 100%;
+  height: 30px;
+}
+
+#bottom_nav ul {
+  position: relative;
+  margin: 5px;
+  padding: 0px;
+}
+
+#bottom_nav li {
+  position: absolute;
+  list-style:none;
+  margin: 0;
+  padding 0px;
+}
+
+#bottom_nav a {
+  height:30px;
+  width: 100%;
+  display:block;
+  float:left;
+}
+
+#guest_list {
+  background: url('/images/sprite.png') -290px -100px;
+  width: 120px;
+  left: 20px;
+}
+
+#guest_list a:hover {
+  background: url('/images/sprite.png') -289px -124px;
+  width: 120px;
+  left: 20px;
+}
+
+#bot_nav_divider_guest_list {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 170px;
+  height: 32px;
+}
+
+#special_packages {
+  background: url('/images/sprite.png') -255px -175px;
+  width: 175px;
+  left: 205px;
+}
+
+#special_packages a:hover {
+  background: url('/images/sprite.png') -253px -203px;
+  width: 175px;
+  left: 205px;
+}
+
+#bot_nav_divider_special_packages {
+  background: url('/images/sprite.png') -17px 3px;
+  width: 2px;
+  left: 420px;
+  height: 32px;
+}
+
+#venue_details {
+  background: url('/images/sprite.png') -275px -232px;
+  width: 130px;
+  left: 450px;
+}
+
+#venue_details a:hover {
+  background: url('/images/sprite.png') -276px -258px;
+  width: 130px;
+  left: 450px;
+}
+

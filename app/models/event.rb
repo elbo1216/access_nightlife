@@ -5,9 +5,9 @@ class Event < ActiveRecord::Base
 	 has_one :event_request
   has_many :gallery
 
-  def event_notes_styles(index)
+  def event_styles(type, index)
     styles = {:bold => false, :italics => false, :color => nil, :size => nil}
-    ens = self.send("event_notes#{index}_styles")
+    ens = self.send("event_#{type}#{index}_styles")
     if ens
       styles[:bold] = true if ens.match('bold')
       styles[:italics] = true if ens.match('italics')
@@ -18,9 +18,9 @@ class Event < ActiveRecord::Base
     styles
   end
 
-  def translate_to_css(notes)
+  def translate_to_css(type, index)
     css = ""
-    ens = self.send("event_notes#{notes}_styles")
+    ens = self.send("event_#{type}#{index}_styles")
     if ens
       css << "font-weight:bold;" if ens.match('bold')
       css << "font-style:italic;" if ens.match('italics')

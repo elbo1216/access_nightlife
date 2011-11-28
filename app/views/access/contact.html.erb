@@ -1,0 +1,55 @@
+<script>
+	jQuery.noConflict();
+ jQuery(document).ready(function() {
+   jQuery('#contact_submit').click(function() {
+     jQuery('#contact_form').submit();
+   });
+   jQuery('#contact_submit').css('cursor', 'pointer');
+ });
+</script>
+<div id="contact_container" class='container'>
+  <div id='contact_title'>
+  </div>
+  <div id='contact_form_container' class='site_forms'>
+    <% form_tag({:controller => "access", :action => "contact"}, :id => 'contact_form') do %>
+      <table id='contact_form_table'>
+        <tr>
+          <td>*First Name:</td>
+          <td colspan=2><%= text_field_tag 'first_name', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>*Last Name:</td>
+          <td colspan=2><%= text_field_tag 'last_name', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>*Email Address:</td>
+          <td colspan=2><%= text_field_tag 'email_address', nil, :class => 'long_input_text'-%></td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td colspan=2>
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+            -
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+            -
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+          </td>
+        </tr>
+        <tr class='row_spacer'><td colspan=2></td</tr>
+        <tr>
+          <td class='v_top_align'>Comment:</td>
+          <td colspan=2><%= text_area_tag 'comments', nil, :size => "40x13" -%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class='required_field_text'>
+            <span>*Required Fields</span>
+          </td>
+          <td>
+            <div id='contact_submit' class='large_submit_button'></div>
+          </td>
+        </tr>
+      </table>
+    <% end -%>
+  </div>
+</div>

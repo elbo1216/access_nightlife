@@ -6,6 +6,10 @@
        <td><%= text_field_tag :gallery_name, gallery.name %></td>
      </tr>
      <tr>
+       <td>Upload Logo:</td>
+       <td><%= file_field_tag :gallery_logo_image %></td>
+     </tr>
+     <tr>
        <td>Event ID:</td>
        <td><%= text_field_tag :event_id, gallery.event_id%></td>
      </tr>
@@ -13,6 +17,14 @@
        <td>Event Name (Last 50 events displayed):</td>
        <% options = @events.map {|e| "<option value='#{e.id}'>#{e.event_name}</option>"}.unshift('<option value=''></option>').join()-%>
        <td><%= select_tag :event, options %></td>
+     </tr>
+     <tr>
+       <td>Short Description:</td>
+       <td><%= text_field_tag :description_short, gallery.description_short %></td>
+     </tr>
+     <tr>
+       <td>Long Description:</td>
+       <td><%= text_field_tag :description_long, gallery.description_long %></td>
      </tr>
      <tr>
        <td>Make as current slideshow:</td>

@@ -1,0 +1,41 @@
+<div id='featured_events'>
+  <div id='featured_events_title' class='event_title'>FEATURED <b>EVENTS</b></div>
+  <div id='featured_events_content' class='event_contents'>
+    <table class='event_table'>
+  	   <% @featured_event.each do |fe| -%>
+          <% next if fe.event.blank? %>
+   	      <%= "<tr><td onClick='toggleEvent(#{@events.index(fe)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#15637C';style.cursor='pointer';\">" %>
+          <%= "<div class='event_img_div' id='asian_img_#{@events.index(fe)}'>" %>
+          <%= "<img class='event_thumb' src='#{fe.event.flyer.file_path}#{fe.event.flyer.filename}' />"%>
+          <%= "</div>" %>
+          <%= "<div class='event_info_div' id='asian_event_name'>"%>
+  		      <%= "<div class='event_info_date'>#{fe.event.event_start_time.strftime('%a %b %d')}</div>" %>
+          <%= "<div class='event_info_name'>#{fe.event.event_name}</div>" %>
+          <%= "</div>"%>
+  		      <div class='clear'></div>
+  	       <%= "</td></tr>" %>
+        <% end -%>
+  	</table>
+  </div>
+</div>
+
+<div id='upcoming_events'>
+  <div id='upcoming_events_title' class='event_title'>UPCOMING <b>EVENTS</b></div>
+  <div id='events_content' class='event_contents'>
+    <table class='event_table'>
+	     <% @upcoming_events.each do |ue| -%>
+        <% next if ue.event.blank? %>
+ 	      <%= "<tr><td onClick='toggleEvent(#{@events.index(ue)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#aeaeae';style.cursor='pointer';\">" %>
+        <%= "<div class='event_img_div' id='asian_img_#{@events.index(ue)}'>" %>
+        <%= "<img class='event_thumb' src='#{ue.event.flyer.file_path}#{ue.event.flyer.filename}' />"%>
+        <%= "</div>" %>
+        <%= "<div class='event_info_div' id='asian_event_name'>"%>
+		      <%= "<div class='event_info_date'>#{ue.event.event_start_time.strftime('%a %b %d')}</div>" %>
+        <%= "<div class='event_info_name'>#{ue.event.event_name}</div>" %>
+        <%= "</div>"%>
+		      <div class='clear'></div>
+	       <%= "</td></tr>" %>
+      <% end -%>
+  	 </table>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+#featured_events {
+  margin:5px 0px 10px 0px;
+  background: url('/images/featured_bg.jpg') repeat-x;
+  width:229px;
+  height:140px;
+}
+
+#upcoming_events {
+
+}
+
+.event_title {
+  color: white;
+  font-family: 'gothic';
+  font-size: 12px;
+}
+
+.event_title b {
+  color: white;
+  font-family: 'gothic-bold';
+  font-size: 12px;
+}
+
+
+#featured_events_title {
+  background: url('/images/sprite.png') -5px -240px;
+  width: 229px;
+  height: 35px;
+  padding: 8px 0px 0px 8px;
+}
+
+.event_table {
+	color:white;
+	font-size:12px;
+	width:100%;
+}
+
+.event_table td {
+  height:85px;
+  border-bottom:1px solid white;
+}
+
+.event_img_div {
+	float:left;
+	width:75px;
+	height:55px;
+	margin:0px 5px 0px 0px;
+}
+
+.event_info_div {
+	float:left;
+	margin:auto;
+	width:140px;
+}
+
+.event_thumb {
+	width:75px;
+	height:55px;
+}
+
+.event_info_date {
+	font-weight:bold;
+	margin:5px 0px 0px 5px;
+	
+}
+
+.event_info_name {
+	color:#c3dbff;
+	margin:1px 0px 0px 5px;
+}
+
+#upcoming_events_title {
+  background: url('/images/sprite.png') -5px -190px;
+  width: 229px;
+  height: 40px;
+  padding: 6px 0px 0px 8px;
+}
+

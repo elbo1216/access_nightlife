@@ -1,0 +1,91 @@
+<script>
+	jQuery.noConflict();
+ jQuery(document).ready(function() {
+   jQuery('#plan_event_submit').click(function() {
+     jQuery('#plan_event_form').submit();
+   });
+   jQuery('#plan_event_submit').css('cursor', 'pointer');
+ });
+</script>
+<div id='plan_event_container' class='container'>
+  <div id='plan_event_title'>
+  </div>
+  <div id='plan_event_form_container' class='site_forms'>
+    <% form_tag({:controller => "access", :action => "plan_event"}, :id => 'plan_event_form') do %>
+      <table id='plan_event_table'>
+        <tr>
+          <td>Type of Event</td>
+          <td colspan=2><%= select_tag 'event_type', options_for_select([['Birthday', 'birthday']]) -%></td>
+        </tr>
+        <tr>
+          <td>*First Name:</td>
+          <td colspan=2><%= text_field_tag 'first_name', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>*Last Name:</td>
+          <td colspan=2><%= text_field_tag 'last_name', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>*Email Address:</td>
+          <td colspan=2><%= text_field_tag 'email_address', nil, :class => 'long_input_text'-%></td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td colspan=2>
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+            -
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+            -
+            <%= text_field_tag 'phone[]', nil, :class => 'short_input_text'-%>
+          </td>
+        </tr>
+        <tr class='row_spacer'><td colspan=2></td</tr>
+        <tr>
+          <td>*Date of Event:</td>
+          <td colspan=2><%= text_field_tag 'date_of_event', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Person Event is for:</td>
+          <td colspan=2><%= text_field_tag 'event_for', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Number of Ladies:</td>
+          <td colspan=2><%= text_field_tag 'num_of_ladies', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Number of Men:</td>
+          <td colspan=2><%= text_field_tag 'num_of_men', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Bottle Service:</td>
+          <td colspan=2><%= text_field_tag 'bottle_service', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>City:</td>
+          <td colspan=2><%= text_field_tag 'city', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Neighborhood:</td>
+          <td colspan=2><%= text_field_tag 'neighborhood', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td>Preferred Venues:</td>
+          <td colspan=2><%= text_field_tag 'preferred_venues', nil, :class => 'long_input_text' -%></td>
+        </tr>
+        <tr>
+          <td class='v_top_align'>Comment:</td>
+          <td colspan=2><%= text_area_tag 'comments', nil, :size => "40x13" -%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class='required_field_text'>
+            <span>*Required Fields</span>
+          </td>
+          <td>
+            <div id='plan_event_submit' class='large_submit_button'></div>
+          </td>
+        </tr>
+      </table>
+    <% end -%>
+  </div>
+</div>

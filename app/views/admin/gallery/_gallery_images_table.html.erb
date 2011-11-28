@@ -1,4 +1,3 @@
-<script type="text/javascript" src="/javascripts/scriptaculous.js"></script>
 <script type="text/javascript">
 function addImageToSlideshow(id) {
   $.ajax({
@@ -21,6 +20,14 @@ function removeImageFromSlideshow(id) {
   
 }
 
+function setAsMainImage(id) {
+  $.ajax({
+      url: '/admin/gallery/set_as_main_image/'+id,
+      success: function(msg) {
+      }
+  });
+  
+}
 function editComment(id) {
   $('#edit_comment_'+id).hide();
   $('#comment_locked_'+id).hide();
@@ -41,8 +48,18 @@ function saveComment(id) {
       }
   });
 }
+
+function viewImage(path) {
+  $('#image_display').attr('src', path);
+  $('#image_div').show();
+}
+
+function closeImage() {
+  $('#image_div').hide();
+}
 </script>
 <div id='gallery_images_partial_div'>
+  <div id='image_div'><img id='image_display' src=""><br /><a href="javascript:closeImage();">close</a></div>
   <h1><%= title -%></h1>
   <table>
     <tr>
@@ -54,6 +71,7 @@ function saveComment(id) {
       <th>View Image</th>
       <% if current_user.is_root? %>
         <th>In Slideshow?</th>
+        <th>Main Image?</th>
       <% end -%>
     </tr>
     <% slideshow.each do |ss| -%>
@@ -74,6 +92,13 @@ function saveComment(id) {
           <td>
               <div id='add_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'none' : 'block' -%>;'><a href='javascript:addImageToSlideshow(<%= ss.id -%>)'>Add Image to Slideshow</a></div>
               <div id='remove_image_<%= ss.id -%>' style='display:<%= ss.is_slideshow_image ? 'block' : 'none' -%>;' ><a href='javascript:removeImageFromSlideshow(<%= ss.id -%>)'>Remove Image from Slideshow</a></div>
+          </td>
+          <td>
+            <% if ss.is_media_image -%> 
+              Main Image
+            <% else -%>
+              <div id='set_image_<%= ss.id -%>'><a href='javascript:setAsMainImage(<%= ss.id -%>)'>Set as main image</a></div>
+            <% end -%>
           </td>
         <% end -%>
       </tr>

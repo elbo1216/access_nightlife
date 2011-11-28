@@ -8,21 +8,61 @@
           <td><%= text_field_tag 'event[event_name]', @event.event_name %></td>
         </tr>
         <tr>
+          <td>Event Name Styles:</td>
+          <td>
+              size: <%= text_field_tag 'event_styles_name[]', @event.event_styles('name', nil)[:size], :class => 'size_input_tag', :id => 'event_styles_name_size', :onblur => 'updateNotes(1, "size", this)' %>px
+              &nbsp;&nbsp;
+              color: <%= select_tag 'event_styles_name[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('name', nil)[:color]), :id => 'event_styles_name_color' %>
+          </td>
+        </tr>
+        <tr>
           <td>Venue:</td>
-          <td><%= text_field_tag 'event[venue]', @event.venue %></td>
+          <td><%= text_field_tag 'event[event_venue]', @event.event_venue %></td>
+        </tr>
+        <tr>
+          <td>Venue Styles:</td>
+          <td>
+              size: <%= text_field_tag 'event_styles_venue[]', @event.event_styles('venue', nil)[:size], :class => 'size_input_tag', :id => 'event_styles_venue_size', :onblur => 'updateNotes(1, "size", this)' %>px
+              &nbsp;&nbsp;
+              color: <%= select_tag 'event_styles_venue[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('venue', nil)[:color]), :id => 'event_styles_venue_color' %>
+          </td>
         </tr>
         <tr>
           <td>Address:</td>
           <td><%= text_field_tag 'event[event_address]', @event.event_address %></td>
         </tr>
         <tr>
+          <td>Address Styles:</td>
+          <td>
+              size: <%= text_field_tag 'event_styles_address[]', @event.event_styles('address', nil)[:size], :class => 'size_input_tag', :id => 'event_styles_address_size', :onblur => 'updateNotes(1, "size", this)' %>px
+              &nbsp;&nbsp;
+              color: <%= select_tag 'event_styles_address[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('address', nil)[:color]), :id => 'event_styles_address_color' %>
+          </td>
+        </tr>
+        <tr>
           <td>Start Date:</td>
           <td><%= text_field_tag 'event[event_start_date]', @event.event_start_date %></td>
+        </tr>
+        <tr>
+          <td>Start Date Styles:</td>
+          <td>
+              size: <%= text_field_tag 'event_styles_date[]', @event.event_styles('start_date', nil)[:size], :class => 'size_input_tag', :id => 'event_styles_date_size', :onblur => 'updateNotes(1, "size", this)' %>px
+              &nbsp;&nbsp;
+              color: <%= select_tag 'event_styles_date[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('start_date', nil)[:color]), :id => 'event_styles_date_color' %>
+          </td>
         </tr>
         <tr>
           <td>Start Time:</td>
           <% starttime = @event.event_start_time.strftime('%l:%M %p') if @event.event_start_time %>
           <td><%= text_field_tag 'event[event_start_time]', starttime %></td>
+        </tr>
+        <tr>
+          <td>Start Time Styles:</td>
+          <td>
+              size: <%= text_field_tag 'event_styles_time[]', @event.event_styles('start_time', nil)[:size], :class => 'size_input_tag', :id => 'event_styles_time_size', :onblur => 'updateNotes(1, "size", this)' %>px
+              &nbsp;&nbsp;
+              color: <%= select_tag 'event_styles_time[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('start_time', nil)[:color]), :id => 'event_styles_time_color' %>
+          </td>
         </tr>
         <tr>
           <td>Flyer:</td>
@@ -47,17 +87,17 @@
           <tr>
             <td>Notes 1 Styles:</td>
             <td>
-                size: <%= text_field_tag 'event_styles1[]', @event.event_notes_styles(1)[:size], :class => 'size_input_tag', :id => 'event_styles1_size', :onblur => 'updateNotes(1, "size", this)' %>px
+                size: <%= text_field_tag 'event_styles1[]', @event.event_styles('notes', 1)[:size], :class => 'size_input_tag', :id => 'event_styles1_size', :onblur => 'updateNotes(1, "size", this)' %>px
                 &nbsp;&nbsp;
-                color: <%= select_tag 'event_styles1[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_notes_styles(1)[:color]), :id => 'event_styles1_color' %>
+                color: <%= select_tag 'event_styles1[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('notes', 1)[:color]), :id => 'event_styles1_color' %>
             </td>
           </tr>
           <tr>
             <td></td>
             <td>
-                bold <%= check_box_tag 'event_styles1[]', 'bold', @event.event_notes_styles(1)[:bold], :onclick => "updateNotes(1, 'bold', this)" %>
+                bold <%= check_box_tag 'event_styles1[]', 'bold', @event.event_styles('notes', 1)[:bold], :onclick => "updateNotes(1, 'bold', this)" %>
                 &nbsp;&nbsp;&nbsp;
-                italic <%= check_box_tag 'event_styles1[]', 'italics', @event.event_notes_styles(1)[:italics], :onclick => "updateNotes(1, 'italic', this)" %>
+                italic <%= check_box_tag 'event_styles1[]', 'italics', @event.event_styles('notes', 1)[:italics], :onclick => "updateNotes(1, 'italic', this)" %>
             </td>
           </tr>
         </table>
@@ -75,17 +115,17 @@
           <tr>
             <td>Notes 2 Styles:</td>
             <td>
-                size: <%= text_field_tag 'event_styles2[]', @event.event_notes_styles(2)[:size], :class => 'size_input_tag', :id => 'event_styles2_size', :onblur => 'updateNotes(2, "size", this)' %>px
+                size: <%= text_field_tag 'event_styles2[]', @event.event_styles('notes', 2)[:size], :class => 'size_input_tag', :id => 'event_styles2_size', :onblur => 'updateNotes(2, "size", this)' %>px
                 &nbsp;&nbsp;
-                color: <%= select_tag 'event_styles2[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_notes_styles(2)[:color]), :id => 'event_styles2_color' %>
+                color: <%= select_tag 'event_styles2[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('notes', 2)[:color]), :id => 'event_styles2_color' %>
             </td>
           </tr>
           <tr>
             <td></td>
             <td>
-                bold <%= check_box_tag 'event_styles2[]', 'bold', @event.event_notes_styles(2)[:bold], :onclick => 'updateNotes(2, "bold", this)' %>
+                bold <%= check_box_tag 'event_styles2[]', 'bold', @event.event_styles('notes', 2)[:bold], :onclick => 'updateNotes(2, "bold", this)' %>
                 &nbsp;&nbsp;&nbsp;
-                italic <%= check_box_tag 'event_styles2[]', 'italics', @event.event_notes_styles(2)[:italics], :onclick => 'updateNotes(2, "italic", this)' %>
+                italic <%= check_box_tag 'event_styles2[]', 'italics', @event.event_styles('notes', 2)[:italics], :onclick => 'updateNotes(2, "italic", this)' %>
             </td>
           </tr>
         </table>
@@ -105,17 +145,17 @@
           <tr>
             <td>Notes 3 Styles:</td>
             <td>
-                size: <%= text_field_tag 'event_styles3[]', @event.event_notes_styles(3)[:size], :class => 'size_input_tag', :id => 'event_styles3_size', :onblur => 'updateNotes(3, "size", this)' %>px
+                size: <%= text_field_tag 'event_styles3[]', @event.event_styles('notes', 3)[:size], :class => 'size_input_tag', :id => 'event_styles3_size', :onblur => 'updateNotes(3, "size", this)' %>px
                 &nbsp;&nbsp;
-                color: <%= select_tag 'event_styles3[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_notes_styles(3)[:color]), :id => 'event_styles3_color' %>
+                color: <%= select_tag 'event_styles3[]', options_for_select([['', ''], ['black', 'black'], ['red', 'red'], ['blue', 'blue'], ['white', 'white']], :selected => @event.event_styles('notes', 3)[:color]), :id => 'event_styles3_color' %>
             </td>
           </tr>
           <tr>
             <td></td>
             <td>
-                bold <%= check_box_tag 'event_styles3[]', 'bold', @event.event_notes_styles(3)[:bold], :onclick => 'updateNotes(3, "bold", this)' %>
+                bold <%= check_box_tag 'event_styles3[]', 'bold', @event.event_styles('notes', 3)[:bold], :onclick => 'updateNotes(3, "bold", this)' %>
                 &nbsp;&nbsp;&nbsp;
-                italic <%= check_box_tag 'event_styles3[]', 'italics', @event.event_notes_styles(3)[:italics], :onclick => 'updateNotes(3, "italic", this)' %>
+                italic <%= check_box_tag 'event_styles3[]', 'italics', @event.event_styles('notes', 3)[:italics], :onclick => 'updateNotes(3, "italic", this)' %>
             </td>
           </tr>
         </table>
@@ -135,45 +175,47 @@
       <img id='p_flyer_img' src='<%= "#{@flyer.file_path}/#{@flyer.filename}" %>' /> 
     </div>    
     <div class='main_event_info' >
-	    <img src='/images/event_main_title.jpg' />
       <div class='info_container'>
         <table class='info_table'>
-        <tr>
-          <td>
-             <label id='p_start_date'><%= @event.event_start_date.strftime('%m/%d/%Y') if @event.event_start_date %></label>
-             <br/>
-             <label id='p_start_time'><%= @event.event_start_time.strftime('%t') if @event.event_start_time %></label>
-           </td>
-        </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-        <tr>
-          <td>
-	          <label id='p_venue'><%= @event.venue  %></label>
-            <br/>
-	          <label id='p_address'><%= @event.venue %></label>
-          </td>
-        </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-        <tr>
-          <td>
-				 <label id='p_notes1_label'><%= @event.event_notes1_label  %></label><br/>
-	             <label id='p_notes1'><%= @event.event_notes1  %></label>
-			</td>
-        </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-        <tr>
-          <td>
-				 <label id='p_notes2_label'><%= @event.event_notes2_label  %></label><br/>
-	             <label id='p_notes2'><%= @event.event_notes2  %></label>
-			</td>
-        </tr>
-		  <tr><td class='info_table_spacer'></td></tr>
-        <tr>
-          <td>
-				 <label id='p_notes3_label'><%= @event.event_notes3_label  %></label><br/>
-	             <label id='p_notes3'><%= @event.event_notes3  %></label>
-			</td>
-        </tr>
+          <tr>
+            <td>
+              <span style="<%= @event.translate_to_css('name', nil)%>">
+                <%= @event.event_name %>
+              </span>
+              <br />
+              <span style="<%= @event.translate_to_css('start_date', nil)%>">
+                <label id='p_start_date'><%= @event.event_start_date.strftime('%B %d %Y') if @event.event_start_date %></label>
+              </span>
+              <br/>
+              <span style="<%= @event.translate_to_css('start_time', nil)%>">
+                <label id='p_start_time'>Starting At: <%= @event.event_start_time.strftime('%I%P') if @event.event_start_time %></label>
+              </span>
+            </td>
+            <td>
+              <span style="<%= @event.translate_to_css('notes', 1)%>">
+    				        <label id='p_notes1_label'><%= @event.event_notes1_label  %></label><br/>
+    	           <label id='p_notes1'><%= @event.event_notes1  %></label>
+              </span>
+    			     </td>
+          </tr>
+    		    <tr><td class='info_table_spacer'></td></tr>
+          <tr>
+            <td>
+              <span style="<%= @event.translate_to_css('venue', nil)%>">
+    	           <label id='p_venue'><%= @event.event_venue  %></label>
+              </span>
+              <br/>
+              <span style="<%= @event.translate_to_css('address', nil)%>">
+    	           <label id='p_address'><%= @event.event_address %></label>
+              </span>
+            </td>
+            <td>
+              <span style="<%= @event.translate_to_css('notes', 2)%>">
+    				        <label id='p_notes2_label'><%= @event.event_notes2_label  %></label><br/>
+    	           <label id='p_notes2'><%= @event.event_notes2  %></label>
+              </span>
+    			     </td>
+          </tr>
         </table>
       </div>
     </div>
