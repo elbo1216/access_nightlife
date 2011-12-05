@@ -34,16 +34,6 @@
 	width: 25px;
 }
 
-#newsletter_button {
-	width:56px;
-	height:21px;
-	background-image:url('../images/newsletter_signup_button.png');
-	background-repeat:no-repeat;
-	margin:auto;
-	padding-top:5px;
-	text-align:center;
-}
-
 #button {
   background: url('/images/sprite.png') -110px 0px;
   width: 65px;
@@ -53,10 +43,15 @@
 #spacer {
   height: 5px;
 }
+
 #button a{
  text-decoration:none;
  color:white;
 	font-family: 'century gothic' sans-serif;
  margin:19px;
  font-size:11px;
+}
+
+#td_button {
+  padding:0px 0px 0px 25px;
 }

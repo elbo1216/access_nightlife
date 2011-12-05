@@ -4,7 +4,7 @@
     <table class='event_table'>
   	   <% @featured_event.each do |fe| -%>
           <% next if fe.event.blank? %>
-   	      <%= "<tr><td onClick='toggleEvent(#{@events.index(fe)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#15637C';style.cursor='pointer';\">" %>
+   	      <%= "<tr><td onClick='toggleEvent(#{@events.index(fe)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#15637C';style.cursor='pointer';\" style='border:0px;>" %>
           <%= "<div class='event_img_div' id='asian_img_#{@events.index(fe)}'>" %>
           <%= "<img class='event_thumb' src='#{fe.event.flyer.file_path}#{fe.event.flyer.filename}' />"%>
           <%= "</div>" %>
@@ -25,7 +25,7 @@
     <table class='event_table'>
 	     <% @upcoming_events.each do |ue| -%>
         <% next if ue.event.blank? %>
- 	      <%= "<tr><td onClick='toggleEvent(#{@events.index(ue)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#aeaeae';style.cursor='pointer';\">" %>
+ 	      <%= "<tr><td onClick='toggleEvent(#{@events.index(ue)}, #{@events.size})' onMouseOut=\"style.backgroundColor='transparent';\" onMouseOver=\"style.backgroundColor='#212121';style.cursor='pointer';\">" %>
         <%= "<div class='event_img_div' id='asian_img_#{@events.index(ue)}'>" %>
         <%= "<img class='event_thumb' src='#{ue.event.flyer.file_path}#{ue.event.flyer.filename}' />"%>
         <%= "</div>" %>

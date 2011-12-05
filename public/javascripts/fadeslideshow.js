@@ -41,14 +41,14 @@ function fadeSlideShow(settingarg){
 	var slideshow=this
 	jQuery(document).ready(function($){ //fire on DOM ready
 		var setting=slideshow.setting
-		var fullhtml=fadeSlideShow.routines.getFullHTML(setting.imagearray) //get full HTML of entire slideshow
+		var fullhtml=fadeSlideShow.routines.getFullHTML(setting.imagearray, setting.dimensions) //get full HTML of entire slideshow
 		setting.$wrapperdiv=$('#'+setting.wrapperid).css({position:'relative', visibility:'visible', background:'#282828', overflow:'hidden', width:setting.dimensions[0], height:setting.dimensions[1]}).empty() //main slideshow DIV
 		if (setting.$wrapperdiv.length==0){ //if no wrapper DIV found
 			alert("Error: DIV with ID \""+setting.wrapperid+"\" not found on page.")
 			return
 		}
 		setting.$gallerylayers=$('<div class="gallerylayer"></div><div class="gallerylayer"></div>') //two stacked DIVs to display the actual slide 
-			.css({position:'absolute', left:0, top:0, width:'100%', height:'100%', background:'black'})
+			.css({position:'absolute', left:0, top:0, width:'100%', height:'100%', background:'black', 'text-align':'center'})
 			.appendTo(setting.$wrapperdiv)
 			.appendTo(setting.$wrapperdiv)
 		var $curimage=setting.$gallerylayers.html(fullhtml).find('img').hide().eq(setting.curimage) //prefill both layers with entire slideshow content, hide all images, and return current image
@@ -203,17 +203,17 @@ fadeSlideShow.prototype={
 
 fadeSlideShow.routines={
 
-	getSlideHTML:function(imgelement){
+	getSlideHTML:function(imgelement, dimensions){
 		var layerHTML=(imgelement[1])? '<a href="'+imgelement[1]+'" target="'+imgelement[2]+'">\n' : '' //hyperlink slide?
-		layerHTML+='<img src="'+imgelement[0]+'" style="border-width:0;" />\n'
+		layerHTML+='<img src="'+imgelement[0]+'" style="border-width:0; width:' + dimensions[0] + 'px; height=' + dimensions[1] + 'px" />\n'
 		layerHTML+=(imgelement[1])? '</a>\n' : ''
 		return layerHTML //return HTML for this layer
 	},
 
-	getFullHTML:function(imagearray){
+	getFullHTML:function(imagearray, dimensions){
 		var preloadhtml=''
 		for (var i=0; i<imagearray.length; i++)
-			preloadhtml+=this.getSlideHTML(imagearray[i])
+			preloadhtml+=this.getSlideHTML(imagearray[i], dimensions)
 		return preloadhtml
 	},
 
