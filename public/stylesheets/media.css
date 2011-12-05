@@ -1,22 +1,29 @@
-#feature_media_container {
+.media_header_style {
   background-image: url('/images/media_bg.jpg');
   width: 1100px;
   height: 257px;
   padding: 15px 0px 0px 0px;
 }
 
-#feature_media_container span {
+.media_header_style span {
   font-weight: bold;
   font-family: 'arial';
   font-size: 22px;
   margin: 10px 30px;
 }
 
-#feature_media_img {
+.media_header_style .main_img{
   float:right;
+  width:350px;
+  height:273px;
 }
 
-#feature_media_text {
+.media_header_style .main_img img {
+  width:350px;
+  height:273px;
+}
+
+.media_header_style .text_container {
   background: url('/images/featured_media_frame.jpg');
   width: 321px;
   height: 273px;
@@ -24,30 +31,34 @@
   margin-right: 80px;
 }
 
-#feature_media_text img {
+.media_header_style .text_container img {
   margin:5px 0px 0px 10px;
 }
 
-#feature_media_text .title {
-  position: absolute;
-  font-size: 21px;
-  font-family: 'gothic';
-  letter-spacing: 1px;
+.media_header_style .text_container .title {
 }
 
-#feature_media_text .text {
+.media_header_style .text_container .text {
   font-size: 10px;
   font-family: 'gothic';
   padding: 15px 5px;
 }
 
-#feature {
+.media_header_style .text_container .top {
+  position:absolute;
+  font-size: 21px;
+  font-family: 'gothic';
+  letter-spacing: 1px;
   color: #62c0fb;
   top: 240px;
   left: 965px;
 }
 
-#nightclub {
+.media_header_style .text_container .bottom {
+  position:absolute;
+  font-size: 21px;
+  font-family: 'gothic';
+  letter-spacing: 1px;
   top: 257px;
   left: 1015px;
 }
@@ -57,31 +68,51 @@
 }
 
 .media_banner {
-  position:absolute;
-  background: url('/images/sprite.png') 0 -452px;
-  width: 228px;
-  height: 48px;
+  background: url('/images/sprite.png') -1px -454px;
+  width: 224px;
+  height: 46px;
 }
 
 #left_selector {
-  background: url('/images/sprite.png') -280px -298px;
   width: 60px;
   height: 60px;
   float:left;
-  margin: 80px 15px;
+  margin: 125px 8px 0px 0px;
 }
 
 #right_selector {
-  background: url('/images/sprite.png') -351px -298px;
   width: 60px;
   height: 60px;
+  float:right;
+  margin: 125px 0px 0px 8px;
+}
+
+#media_content_container {
+  height:299px;
+  width: 960px;
   float:left;
-  margin: 80px 15px;
+  overflow: hidden;
+}
+
+#media_content_container ul {
+  padding:0px;
+  left:230px;
+}
+
+#media_content_container li {
+  float:left;
+  list-style:none;
+  overflow:hidden;
 }
 
 .media_content {
-  float:left;
   text-align: center;
+  margin:0px 8px;
+}
+
+.media_content .main_img {
+  width: 224px;
+  height: 170px;
 }
 
 .media_content_text {

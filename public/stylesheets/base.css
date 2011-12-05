@@ -82,6 +82,18 @@ body img {
   position:relative;
 }
 
+.overlay {
+  background: url('/images/overlay.png');
+  background-repeat: repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left:0px;
+  top:0px;
+  z-index: 1000;
+  display:none;
+}
+
 #home_link {
   background: url('/images/sprite.png') -10px -30px;
   width: 50px;

@@ -97,4 +97,10 @@ class AccessController < ApplicationController
     @feature_gallery = Gallery.find_by_sql("select * from galleries where is_feature_gallery is true").first
     render 'access/media_main.html.erb'
   end
+
+  def media_images
+    @gallery = Gallery.find(params[:id])
+    @gallery_images = GalleryImage.find(:all, :conditions => "gallery_id = #{params[:id]}", :order => "id")
+  end
+
 end
