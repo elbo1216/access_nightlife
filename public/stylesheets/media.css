@@ -46,21 +46,21 @@
 
 .media_header_style .text_container .top {
   position:absolute;
-  font-size: 21px;
+  font-size: 20px;
   font-family: 'gothic';
   letter-spacing: 1px;
   color: #62c0fb;
-  top: 240px;
-  left: 965px;
+  top: 200px;
+  left: 975px;
 }
 
 .media_header_style .text_container .bottom {
   position:absolute;
-  font-size: 21px;
+  font-size: 20px;
   font-family: 'gothic';
   letter-spacing: 1px;
-  top: 257px;
-  left: 1015px;
+  top: 218px;
+  left: 1017px;
 }
 
 #media_selector_container {

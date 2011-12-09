@@ -45,6 +45,7 @@ ActionController::Routing::Routes.draw do |map|
     map.access 'plan_event', :controller => 'access', :action => 'plan_event' 
     map.access 'media', :controller => 'access', :action => 'media' 
     map.access 'media_images', :controller => 'access', :action => 'media_images' 
+    map.access 'request_newsletter', :controller => 'access', :action => 'request_newsletter'
   end
   # See how all your routes lay out with "rake routes"
 

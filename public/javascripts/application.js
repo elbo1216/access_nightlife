@@ -22,6 +22,48 @@ function toggleEvent(event_id, total_event_ids) {
  jQuery('#main_event_container_' + event_id).fadeIn('fast');
 }
 
+function submitNewsletter() {
+  var bday = jQuery('#birthday_mon').val() + '/' + jQuery('#birthday_dy').val() + '/' + jQuery('#birthday_yr').val();
+  var email = jQuery('#email_address').val();
+
+  if (email == '') {
+    alert("Please enter an email address");
+    return;
+  }
+
+  if (bday.search(/\d\d\/\d\d\/\d\d/) == -1) {
+    alert("Please fill in your Birthday");
+    return;
+  }
+
+  jQuery.ajax({ url: "/request_newsletter",
+                type: "POST",
+                data: {"email_address": email, "birthday": bday},
+                success: function(data) {
+                  if (data == "foo") {
+                    var overlay = jQuery("#overlay")
+                    overlay.html("");
+                    overlay.height(jQuery(document).height())
+                           .width(jQuery(document).width())
+                           .css('text-align', 'center')
+                           .css('z-index', '10000')
+                           .click(function() { jQuery(this).hide()});
+                    
+                    var img = jQuery('<div/>')
+                                 .css('background-image', 'url("/images/popup.png")')
+                                 .css('background-repeat', 'no-repeat')
+                                 .css('padding', '25px 2px')
+                                 .css('margin', '200px auto')
+                                 .width(272)
+                                 .height(140)
+                                 .html('<span style="width:200px">Thank you for registering to our newsletter.  We will inform you of any new events we may have throughout the year</span>')
+                                 .appendTo(overlay);
+                    overlay.show();              
+                  }
+                }
+              });
+}
+
 var MediaSetup={
   container:"#media_content_container",
   init:function(type) {

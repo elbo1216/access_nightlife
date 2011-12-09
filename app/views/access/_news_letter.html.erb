@@ -6,7 +6,7 @@
   </div>
   <div class='clear'></div>
   <div id='newsletter_form'>
-  <% form_remote_tag(:html => {:name => 'newsletter_form'}, :url => {:action => :add_request}, :update => 'update', :complete => 'submitUserInfo()') do -%>
+  <% form_remote_tag(:html => {:id => 'newsletter_form_submit', :name => 'newsletter_form'}, :url => {:controller => 'access', :action => :request_newsletter}, :update => 'update') do -%>
     <table class='newsletter_form_layout'>
       <tr>
         <td style='width:65px;' >Email:</td>
@@ -21,7 +21,7 @@
           <%= text_field_tag :birthday_dy %> -
           <%= text_field_tag :birthday_yr %>
 		      </td>
-		      <td id='td_button'><div id='button'><div id='spacer'></div><a href='#'>SUBMIT</a></div></td>
+		      <td id='td_button'><div id='button'><div id='spacer'></div><a href='javascript:submitNewsletter()'>SUBMIT</a></div></td>
        </tr>
      </table>
      <%= hidden_field_tag :request_type, 'newsletter' %>

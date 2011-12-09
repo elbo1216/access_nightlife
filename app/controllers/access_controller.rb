@@ -103,4 +103,7 @@ class AccessController < ApplicationController
     @gallery_images = GalleryImage.find(:all, :conditions => "gallery_id = #{params[:id]}", :order => "id")
   end
 
+  def request_newsletter
+    render :text => "foo"
+  end
 end
