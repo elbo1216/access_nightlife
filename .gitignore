@@ -2,3 +2,4 @@
 /public/images/gallery/*
 .swp
 .DS_Store
+log/*
