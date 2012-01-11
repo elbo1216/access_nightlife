@@ -69,3 +69,8 @@ h1 {
 	color:'grey';
 	padding:3px;
 }
+
+.column_note {
+  font-size: 12px;
+  font-style: italics;
+}

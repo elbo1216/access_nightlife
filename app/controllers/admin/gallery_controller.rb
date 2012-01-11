@@ -16,6 +16,15 @@ module Admin
       @gallery = Gallery.new
       if request.post?
         if !params[:event_id].blank?
+          if params[:event_id].to_i == 0
+            flash[:notice] = "Event ID must be an number.  If you do not know the event ID please pick an event from Event Name drop down"
+            return
+          end
+
+          if !params[:event].blank?
+            flash[:notice] = "You can only enter in an Event ID or pick an Event Name.  Please remove one before submitting."
+            return
+          end
           event = Event.find(params[:event_id])
           unless event.blank?
             @gallery.event = event
@@ -35,7 +44,7 @@ module Admin
         logo.reload
 
         @gallery.name = params[:gallery_name]
-        @gallery.is_current_slideshow = params[:is_current_slideshow]
+        @gallery.is_current_slideshow = params[:is_current_slideshow] || false
         @gallery.gallery_path = "#{RAILS_ROOT}/public/images/gallery"
         @gallery.gallery_logo_id = logo.id
         @gallery.description_short = params[:description_short]
