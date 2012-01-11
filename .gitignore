@@ -3,3 +3,6 @@
 .swp
 .DS_Store
 log/*
+vendor/*
+config/environment.rb
+config/database.yml
