@@ -2,6 +2,7 @@
   <div id='feature_media_container' class='media_header_style'>
     <span class='title'>IMAGE GALLERY</span>
     <% if @feature_gallery -%>
+      <input id='feature_media_id' type='hidden' value='<%= @feature_gallery.id%>'>
       <div id='feature_media_text' class='text_container'>
         <% if @feature_gallery.gallery_logo -%>
           <img src='<%= @feature_gallery.gallery_logo.logo_path + "/" + @feature_gallery.gallery_logo.logo_file_name %>'/>

@@ -119,6 +119,12 @@ var MediaSetup={
   },
 
   setupGalleryLinks:function() {
+    //Main Feature Gallery Link
+    jQuery('#feature_media_container').mouseover( function() { jQuery(this).css('cursor', 'pointer')});
+    jQuery('#feature_media_container').click( function() { 
+        window.location.href = '/media_images?id=' + jQuery('#feature_media_id').val();
+    });
+    //Bottom Gallery Links
     var galleries = jQuery(this.container + ' .media_content')
     for(var i=0;i<galleries.length;i++) {
       jQuery(galleries[i]).mouseover( function() { jQuery(this).css('cursor', 'pointer')});
