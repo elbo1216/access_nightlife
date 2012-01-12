@@ -33,6 +33,8 @@
 
 .media_header_style .text_container img {
   margin:5px 0px 0px 10px;
+  height:40px;
+  width:120px;
 }
 
 .media_header_style .text_container .title {
