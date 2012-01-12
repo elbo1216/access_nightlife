@@ -2,13 +2,17 @@
   <div id='media_image_title_container' class='media_header_style'>
     <span class='title'>IMAGE GALLERY</span>
     <div id='gallery_text' class='text_container'>
-      <img src='<%= @gallery.gallery_logo.logo_path + "/" + @gallery.gallery_logo.logo_file_name %>'/>
+      <% if @gallery.gallery_logo -%>
+        <img src='<%= @gallery.gallery_logo.logo_path + "/" + @gallery.gallery_logo.logo_file_name %>'/>
+      <% end -%>
       <span id='feature' class='top' >GALLERY</span>
       <span id='nightclub' class='bottom'>IMAGES</span>
       <div class='text'><%= @gallery.description_long %></div>
     </div>
     <div id='gallery_main_img' class='main_img'>
-      <img src='<%= @gallery.get_media_image.image_path + "/" + @gallery.get_media_image.image_filename %>'/>
+      <% if @gallery.get_media_image -%>
+        <img src='<%= @gallery.get_media_image.image_path + "/" + @gallery.get_media_image.image_filename %>'/>
+      <% end -%>
     </div>
   </div>
   <div id='image_selector_container'>
